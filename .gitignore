@@ -6,3 +6,26 @@ __pycache__/
 .coverage
 dist/
 *.egg-info/
+
+# Local configuration, keys, credentials and private retrieval data
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.pem
+*.key
+secrets/
+credentials/
+local-data/
+data/private/
+data/raw/
+corpus/private/
+vectorstore/
+chroma/
+qdrant_storage/
+*.log
+outputs/
+runs/
+.DS_Store
+
+# Specs, governance and approved synthetic fixtures remain trackable.
