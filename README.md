@@ -2,6 +2,26 @@
 
 A small FastAPI service that exposes stable API contracts across configured use cases.
 
+## Project stages and governance
+
+Stage 1 is this reusable API. Stage 2 appends Agentic RAG in the same repository,
+preserving the API contracts; Stage 2 implementation has not been approved here.
+See the [project brief](docs/project-brief.md), [initial scope](specs/001-initial-scope/spec.md),
+[agent guidance](AGENTS.md), [roles](agents/roles.md), and [skills index](agents/skills-index.md).
+
+The sole active [constitution](docs/constitution.md) preserves the starter's ten
+principles. Existing R1 Spec Kit-style artifacts are preserved; official adoption
+is not established. Follow the [adoption boundary](docs/evolution-path.md) to avoid
+duplicate constitutions or hand-written tool internals. Project-owned
+[requirements](docs/templates/prompt-requirements.md), [feature](docs/templates/feature-spec.md),
+[plan](docs/templates/implementation-plan.md), and [task](docs/templates/tasks.md)
+templates support the next reviewed slice without copying upstream skills.
+
+Checks are local-only. [Docker Hub image release](docs/release.md) requires separate
+approval; no publication is claimed. License, rights holder and Stage 2 corpus
+approval remain undecided. [Reconciliation](docs/governance-reconciliation.md)
+records dispositions and actual checks. No license grant is generated.
+
 ## Local setup
 
 Requires Python 3.10 or later. From the repository root:
