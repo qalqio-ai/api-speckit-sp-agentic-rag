@@ -45,7 +45,13 @@ Historical results are labeled historical and do not replace these unrun gates.
 ## Publication boundary
 
 The destination GitHub repository is public. Historical fixture approvals permit
-local repository/demo use only; uploading the synthetic corpus and reports
-containing its text requires a separate explicit redistribution decision.
-Do not infer that decision from this document. Model uploads and Docker Hub
-publication are excluded. A PR is a review checkpoint, not a release or promotion.
+local repository/demo use only. After the public redistribution question was
+presented in this session, the user explicitly directed: “I approved all.
+(2026-10-04) proceed with a push and PR”. This current instruction authorizes
+public inclusion of the existing synthetic fixtures and reports in this PR,
+as well as the branch push and PR creation. The historical approval receipts
+are preserved unchanged; this records the current authorization without
+backdating it or expanding the original receipt.
+
+Model uploads and Docker Hub publication are excluded. A PR is a review
+checkpoint, not a release or promotion. No software/model license is granted.
