@@ -1,0 +1,18 @@
+{
+  "model_allocated_kib": {
+    "embedding": 89468,
+    "generation": 708788
+  },
+  "demo_inputs_allocated_kib": {
+    "original_f3_fixtures": 48,
+    "original_run_helpers": 192
+  },
+  "candidate_image_logical_bytes": 1468958887,
+  "qdrant_image_logical_bytes": 197967748,
+  "docker_reported_rows": [
+    "seda-workshop                           20261008-rc1      f1dc063ca46a   7 minutes ago   1.47GB    1.469GB       293.1kB       1",
+    "f3-grounded-rag                         local             139a1f015734   2 days ago      1.47GB    1.469GB       0B            0",
+    "qdrant/qdrant                           v1.19.1           dd57172b0bbe   4 weeks ago     198MB     0B            198MB         1"
+  ],
+  "note": "Image layers are shared; do not sum logical sizes as additional physical disk. Snapshot time before final evidence/F4 additions."
+}

@@ -1,0 +1,10 @@
+FROM python:3.12-slim@sha256:dddfd7e07f9d15aeeca61529320492139d21cac7f0070c00609243e51e4e0016
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+WORKDIR /app
+COPY requirements.f1.lock ./
+RUN python -m pip install --no-cache-dir --require-hashes -r requirements.f1.lock
+COPY pyproject.toml README.md ./
+COPY app ./app
+COPY specs/agentic-rag/f1-ingestion/contracts/serialization.schema.json ./specs/agentic-rag/f1-ingestion/contracts/serialization.schema.json
+RUN python -m pip install --no-cache-dir --no-deps --no-build-isolation .
+CMD ["python", "-m", "app.ingestion", "session"]

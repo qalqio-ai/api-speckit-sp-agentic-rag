@@ -1,0 +1,50 @@
+{
+  "image_id": "sha256:f1dc063ca46a05ccce548121c1f530eb1d7ce2edc87dc27db1f32d3ba2cdf00a",
+  "name": "seda-api-0b12517a87db4022b2396b1f22113751",
+  "checks": [
+    {
+      "path": "/health",
+      "passed": true,
+      "status": 200,
+      "body": {
+        "status": "ok"
+      }
+    },
+    {
+      "path": "/v1/use-cases/sample-use-case/sources",
+      "passed": true,
+      "status": 200,
+      "body": {
+        "use_case_id": "sample-use-case",
+        "sources": [
+          {
+            "source_id": "sample-source-1",
+            "title": "Sample source"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/v1/use-cases/empty-use-case/sources",
+      "passed": true,
+      "status": 200,
+      "body": {
+        "use_case_id": "empty-use-case",
+        "sources": []
+      }
+    },
+    {
+      "path": "/v1/use-cases/missing-use-case/sources",
+      "passed": true,
+      "status": 404,
+      "body": {
+        "detail": {
+          "code": "unknown_use_case"
+        }
+      }
+    }
+  ],
+  "readiness_ms": 1569.8415309889242,
+  "container_absent": true,
+  "exit_code": 0
+}

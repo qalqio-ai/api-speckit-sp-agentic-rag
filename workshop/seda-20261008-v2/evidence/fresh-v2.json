@@ -1,0 +1,17 @@
+{
+  "project": "f3-b70696d04bae4431a4345ed76449ffe4",
+  "command_mode": "fresh",
+  "acceptance_claimed": false,
+  "bundle_sha256": "664ef00e57d60043758ebadd56e5747f20a4269d73eda73d4eae1fe8049f88fc",
+  "failed_operation": [
+    "docker",
+    "image",
+    "inspect"
+  ],
+  "diagnostic": "permission denied while trying to connect to the Docker daemon socket at unix:///Users/edmcbee/.docker/run/docker.sock: Get \"http://%2FUsers%2Fedmcbee%2F.docker%2Frun%2Fdocker.sock/v1.49/images/sha256:f1dc063ca46a05ccce548121c1f530eb1d7ce2edc87dc27db1f32d3ba2cdf00a/json\": dial unix /Users/edmcbee/.docker/run/docker.sock: connect: operation not permitted\n",
+  "wrapper_error": "docker_command_failed",
+  "ownership_consistent": false,
+  "stack_absent": false,
+  "cleanup_ms": 130.47814500168897,
+  "exit_code": 1
+}

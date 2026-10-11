@@ -1,0 +1,38 @@
+{
+  "candidate": "SEDA-constrained-selection-rc2",
+  "files": {
+    "inputs/development-calibration-v2.json": "8046c6898336a81c7cfcb0349fd16149515fe1d87895594651472e95d8e34335",
+    "inputs/generation-assets.json": "e2c60542b3dd112ac71a649373aaef344e5872b71d5f857c64d7c94c4ca764e5",
+    "inputs/retrieval-acceptance.json": "ba007bdae8d48ad93df5e9fd16a4428d2fbcfb3d1dd9bf3a704318ac857d8426",
+    "inputs/constraint-v1-worker.py": "272095138b269b02dfa1c3ee7acaff21cc8aaa6f09afb4004fa91731fa0fe73b",
+    "inputs/run-settings.json": "b3cf610b691c3599c775771c9351315bb9f09b69c398cfb592bb3a26541bc768",
+    "inputs/constraint-v1-trie.py": "766da6d0c1c581820f6a8492ff82dcc236da3ae5f71f6af64772774565cf9528",
+    "inputs/session.py": "d1ee5ee718a1b78de7dc138ee340dac882512c132b58e1f1fffeea3f8963c0f3",
+    "inputs/generation-prompt-v3-candidate.json": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+    "inputs/tmpfs-proof.json": "73d2faec03991362cdb4f1344c94e5b9515c46d43f0ff65dc1ee0a9c8436270c",
+    "inputs/test-constraint-v1.py": "4e5248649d1e7c403840a4f91c29c84ba01bde0b261124ee0cde64a8a77f01f5",
+    "inputs/.ruff.toml": "c2c272bcef62e349b6a4fb7b3001d5df9da3c6a551da1f00fb663483a8991609",
+    "inputs/regression-cases.json": "ceca580af0f5abc3a75bcd0f4d1b57d1180d1507c88db48d14bc780fa74f9924",
+    "inputs/calibration.py": "29e1109516f3f26d147d041970c174279fc41f46a5b77b3bb4836b271ac265cc",
+    "inputs/.ruff_cache/CACHEDIR.TAG": "5953156d7e0c564a427251316eaf26f8870e6483ae2197f916b630e4f93e31ae",
+    "inputs/.ruff_cache/.gitignore": "9e3a60f1e6ec4ae60215c11d54b171392745ec25e9dded433d5bd921363af316",
+    "inputs/.ruff_cache/0.16.10/14830870526400244832": "b4b9e2d187de51913330087f667c4c949f1642df8abb19ec69707925e67d677d",
+    "fixtures/answer-approval.json": "2a9cdea1b8bc9f362b4ed4f099f2629063a69c63a3c1fb63a5fef33c3606ec41",
+    "fixtures/ingest.jsonl": "11510442da7793e3306ae4947abe11834730e43cbf0f47ba9da859123d0d0940",
+    "fixtures/grounding-catalog.json": "a3b3775e60b3ba334d23f0f00489fb9488da3440207b1113acc810d4894887d8",
+    "fixtures/approval.json": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+    "fixtures/f2-neighbor-returns-v1.txt": "17a36a6f7e0ca4f4d90a57dc56feb5bf151e654fd57101989df5b0fe42037f18",
+    "fixtures/evaluation-cases.json": "d18ce216cf1f8d4ade4d86a5a20c3ca28125edbd9fdd9ac57b74a8d0e4809335",
+    "fixtures/retrieval-approval.json": "76f2836e6565d2e4596b474af88f2fb62f414a330c3f3d64e018c49aa8ddc6da",
+    "fixtures/f2-synthetic-returns-v2.txt": "42e29fd89ba570415acadc4555e6249e8d00c0a511e982f8abfea0bdc31ac324",
+    "fixtures/f2-synthetic-returns-v1.txt": "50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d",
+    "fixtures/evaluation-cases.proposal.json": "ba6224c06beb4835cc63e75a88a8df0db620679a20d76a793801ed82ed0f5284",
+    "fixtures/retrieval-evaluation-cases.json": "616a8477e22c42d8d21ddc2e338021f367ce61c32452d9e175c96ea5ac5ecced",
+    "fixtures/f2-synthetic-hours-v1.txt": "f19298916273b5ad01a43fdaa740eba1c37596049e59059f6141df6b69baa03d",
+    "fresh-acceptance-freeze.json": "7166c291ed38bcb78406139d30c206e4b9a33e0a7b2569f70cb0f87044386e7a",
+    "threshold-review.json": "898161be2af56e300cebd9e5c0fd0b9ff11b27e4ce3b86e10824f438271cc840"
+  },
+  "host_code": {
+    "workshop/seda_v2.py": "cc18fb815b0861ec16056ee8e9bafb6ab6394b1ef677d25faeaeb8e3b7945a40"
+  }
+}

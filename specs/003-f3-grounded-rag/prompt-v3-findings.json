@@ -1,0 +1,27 @@
+{
+  "kind": "v3_single_regression_diagnostic_findings",
+  "quality_passed": false,
+  "is_acceptance": false,
+  "iteration_stopped": true,
+  "schema_errors": [
+    {
+      "path": [
+        "claims",
+        0
+      ],
+      "keyword": "required",
+      "message": "'chunk_ids' is a required property"
+    }
+  ],
+  "exact_rendering": false,
+  "chunk_ids_present": false,
+  "supporting_chunk_id_membership": "not established: required chunk_ids missing",
+  "claim_support": "not validated: schema rejection precedes grounding/citation validation",
+  "raw_equals_v2_replay": true,
+  "raw_sha256": "b8a8dfaedf1f39a33cb789ba532f366133c7f4caa2309a6254718e11d3aa90f5",
+  "proposal_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+  "experiment_fingerprint": "44f41716f83fbcabdaa8a2885a3785769e1b25dbd124fe113b060dfac7867ad6",
+  "existing_protected_paths_unchanged": 139,
+  "followup_regressions_run": false,
+  "fresh_acceptance_run": false
+}

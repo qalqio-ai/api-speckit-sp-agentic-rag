@@ -1,0 +1,16 @@
+{
+  "acceptance_configuration": "fresh-acceptance-freeze.json",
+  "answer_cases_passed": 5,
+  "answer_cases_total": 5,
+  "combined_acceptance_pass": false,
+  "failed_gate": "Neighbor-scope known-query retrieval returned no_match; frozen expectation required actual neighbor evidence. Preserve this failure.",
+  "lifecycle_checks": {
+    "isolation_pass": false,
+    "old_ids_absent_pass": true,
+    "replacement_pass": true,
+    "catalog_mismatch_pass": true,
+    "clear_pass": true
+  },
+  "lifecycle_label": "Control/lifecycle observations include exposed questions; these are regression assertions, separate from the five fresh answer questions.",
+  "future_cases_rule": "Do not tune this case set or reuse it as untouched acceptance after any threshold revision."
+}

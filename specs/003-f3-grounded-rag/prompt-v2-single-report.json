@@ -1,0 +1,157 @@
+{
+  "project": "f3-b8e508c0a0a24841a3ab2ac738235f77",
+  "acceptance_claimed": false,
+  "kind": "prompt_v2_diagnostic_experiment",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "edm-answer-1",
+      "status": "failed",
+      "reason": null,
+      "error": {
+        "code": "invalid_model_response",
+        "message": "invalid_model_response",
+        "cause_code": null
+      },
+      "passed": false,
+      "citation_correct": null,
+      "grounding_correct": null,
+      "claim_count": 0,
+      "citation_count": 0,
+      "retrieval_searches": 1,
+      "generation_attempts": 1,
+      "retrieval_ms": 8791.958151000017,
+      "generation_ms": 18612.684559,
+      "total_ms": 27406.549762,
+      "evidence_count": 1,
+      "all_evidence_isolated": true,
+      "generation_diagnostics": {
+        "stdout_bytes": 0,
+        "stderr_bytes": 871,
+        "proposal_file_sha256": "5c092694cc39e4fa3b187669bcadd7fd154d2cb0e25497e6cb383dfd41788d49",
+        "system_prompt_sha256": "c4aa4bb69891335828aa2188911460b9e84cd1c1205b3cb0ed3a8dedc0c873f9",
+        "load_ms": 10603.671287999987,
+        "tokenizer_eos_id": 2,
+        "effective_eos_ids": [
+          2
+        ],
+        "model_generation_eos": 2,
+        "original_system_prompt_sha256": "855fbb8ea2364c7e54cfe0baa66b43cad5aa44e6498ce7d1c7c7736207931572",
+        "context_sha256": "3e6e8c29f78de7171b365eafdd08a7bf4ab364a30829f4ad3ec04192f8e02fac",
+        "prompt_bytes": 1642,
+        "prompt_tokens": 630,
+        "settings": {
+          "max_new_tokens": 384,
+          "do_sample": false,
+          "num_beams": 1,
+          "eos_token_id": [
+            2
+          ],
+          "pad_token_id": 2
+        },
+        "generate_ms": 7752.185670000017,
+        "new_tokens": 43,
+        "output_tokens": 673,
+        "last_token_id": 2,
+        "eos_positions": [
+          42
+        ],
+        "tokenizer_eos_positions": [
+          42
+        ],
+        "generated_text_bytes": 157,
+        "schema_valid": false,
+        "stopping_reason": "configured_eos",
+        "decoded_tokens": 43,
+        "decoded_bytes": 157,
+        "worker_response_bytes": 51,
+        "worker_response_kind": "error",
+        "worker_error": "invalid_model_response"
+      }
+    }
+  ],
+  "measurement": "instrumentation measures unchanged genuine calls; no scripted model output, retry or repair",
+  "retrieval_configuration_fingerprint": "e91a67aac7fe729f79512bc5ce2cdcc5aa8f38d172a042af9cfa2894448af04e",
+  "generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "experiment_configuration": {
+    "kind": "approved_single_variable_diagnostic",
+    "proposal_file_sha256": "5c092694cc39e4fa3b187669bcadd7fd154d2cb0e25497e6cb383dfd41788d49",
+    "system_prompt_sha256": "c4aa4bb69891335828aa2188911460b9e84cd1c1205b3cb0ed3a8dedc0c873f9",
+    "revision": "edm-f3-prompt-schema-v2-proposal",
+    "decision_reference": "User in this session: Approved: test generation-prompt-v2-proposal.json on the single known generation regression query. If it succeeds, run the other exposed generation regressions.",
+    "case_ids_initial": [
+      "edm-answer-1"
+    ],
+    "conditional_followup": [
+      "edm-answer-2",
+      "edm-answer-3"
+    ],
+    "base_frozen_configuration_sha256": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+    "base_generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+    "retrieval_min_score": 0.45614706000000005,
+    "calibration_id": "EDM-f2-20261004-v1",
+    "changes": [
+      "system_message_only"
+    ],
+    "unchanged_limits": {
+      "max_new_tokens": 384,
+      "max_generated_utf8_bytes": 16384,
+      "max_prompt_tokens": 2048,
+      "max_prompt_utf8_bytes": 65536,
+      "max_context_tokens": 8192,
+      "generation_deadline_seconds": 110,
+      "whole_request_seconds": 240
+    },
+    "is_acceptance": false,
+    "experiment_configuration_fingerprint": "a833b8e47983fba6e827c68e595af6377034d92f25052d5ede097853d2385f0a"
+  },
+  "all_cases_pass": false,
+  "generation_diagnostics": {
+    "stdout_bytes": 0,
+    "stderr_bytes": 871,
+    "proposal_file_sha256": "5c092694cc39e4fa3b187669bcadd7fd154d2cb0e25497e6cb383dfd41788d49",
+    "system_prompt_sha256": "c4aa4bb69891335828aa2188911460b9e84cd1c1205b3cb0ed3a8dedc0c873f9",
+    "load_ms": 10603.671287999987,
+    "tokenizer_eos_id": 2,
+    "effective_eos_ids": [
+      2
+    ],
+    "model_generation_eos": 2,
+    "original_system_prompt_sha256": "855fbb8ea2364c7e54cfe0baa66b43cad5aa44e6498ce7d1c7c7736207931572",
+    "context_sha256": "3e6e8c29f78de7171b365eafdd08a7bf4ab364a30829f4ad3ec04192f8e02fac",
+    "prompt_bytes": 1642,
+    "prompt_tokens": 630,
+    "settings": {
+      "max_new_tokens": 384,
+      "do_sample": false,
+      "num_beams": 1,
+      "eos_token_id": [
+        2
+      ],
+      "pad_token_id": 2
+    },
+    "generate_ms": 7752.185670000017,
+    "new_tokens": 43,
+    "output_tokens": 673,
+    "last_token_id": 2,
+    "eos_positions": [
+      42
+    ],
+    "tokenizer_eos_positions": [
+      42
+    ],
+    "generated_text_bytes": 157,
+    "schema_valid": false,
+    "stopping_reason": "configured_eos",
+    "decoded_tokens": 43,
+    "decoded_bytes": 157,
+    "worker_response_bytes": 51,
+    "worker_response_kind": "error",
+    "worker_error": "invalid_model_response"
+  },
+  "peak_bytes": 3068592128,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 412012544,
+  "stack_absent": true,
+  "exit_code": 0
+}

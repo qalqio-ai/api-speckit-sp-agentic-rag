@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "owner": "EDM",
+  "reviewer": "EDM",
+  "decision_reference": "User approval in this session: I approve. Proceed. (2026-10-02); T002 exact-source proposal",
+  "approved_at": "2026-10-02T06:02:05Z",
+  "classification": "synthetic, non-sensitive",
+  "access_scope": "local_demo_operator",
+  "redistribution_scope": "local repository/demo only; no external redistribution or license grant",
+  "retention": "until_demo_end",
+  "deletion_scope": "owned_run_collection_and_stack",
+  "allowed_sources": [
+    {
+      "use_case_id": "learning-a",
+      "source_id": "shared-guide",
+      "revision": "v1",
+      "content_sha256": "9c1bc797248c020f214f4d4d795a9fd38a851fbd2d030feb85899caec51ce3be"
+    },
+    {
+      "use_case_id": "learning-a",
+      "source_id": "shared-guide",
+      "revision": "v2",
+      "content_sha256": "0c88394ccc7328e40eb1c6fa11ffed6947b950afcf22d5f92a840ad3d21f39e2"
+    },
+    {
+      "use_case_id": "learning-b",
+      "source_id": "shared-guide",
+      "revision": "v1",
+      "content_sha256": "f31eff2880b64e18e46d323af054d9303b5654fa22fe71af947dec62f647acab"
+    }
+  ]
+}

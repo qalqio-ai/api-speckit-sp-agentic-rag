@@ -1,0 +1,28 @@
+{
+  "version": "EDM-f2-20261007-v2",
+  "threshold": 0.42808731,
+  "metric": "cosine_exact",
+  "direction": "higher_is_more_similar",
+  "inclusion": "score >= threshold",
+  "top_k": 3,
+  "basis": "Midpoint of maximum negative and minimum positive from separately frozen development calibration only. Known receipt regression and fresh-v1 outcomes excluded from selection.",
+  "maximum_negative": 0.28127697,
+  "minimum_positive": 0.57489765,
+  "calibration_report_sha256": "706fa60316318267c0c41f27423fdc7feef965ba34be0146df77a52ecc91b1fb",
+  "calibration_cases_sha256": "8046c6898336a81c7cfcb0349fd16149515fe1d87895594651472e95d8e34335",
+  "review_rule": "specs/002-f2-retrieval/plan.md Verification and calibration: propose threshold strictly above max negative and at/below min positive, then obtain review.",
+  "reviewer": "Agent acting under EDM delegated local review authority; no individual human value review is asserted",
+  "authorization": "User: all that pertains to achieving this goal will not require approval; just proceed until achieved. User reiterated stop asking permission to proceed.",
+  "reviewed_at": "2026-10-07T01:19:00.921394+00:00",
+  "checks": [
+    "full candidate counts complete",
+    "all current scope/source/ID filter checks pass",
+    "positive ranks <=3",
+    "negative candidate sets nonempty",
+    "strict separation holds",
+    "original calibration outcomes remain compatible",
+    "no acceptance observations used for selection",
+    "no model/source/metric/top-k/validator/budget changes"
+  ],
+  "decision": "Adopt only in separately versioned workshop candidate; original freeze/threshold/failures remain immutable. Fresh v2 acceptance required before any quality claim."
+}

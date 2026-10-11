@@ -1,0 +1,52 @@
+{
+  "revision": "edm-f3-generation-token-trie-v1-proposal",
+  "status": "review_only_not_executed",
+  "experiment": "edm-answer-1 only; one genuine model.generate attempt; diagnostic, never acceptance",
+  "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "model_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+  "prompt_file": "generation-prompt-v3-candidate.json",
+  "prompt_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+  "additional_dependencies": [],
+  "mechanism": "Transformers 5.18.0 prefix_allowed_tokens_fn; bounded two-path token trie; disallowed tokens masked during genuine greedy generation",
+  "paths": [
+    "One canonical answered ModelResponse, compiled from exactly one eligible reviewed claim and exactly one actually returned fully supporting chunk.",
+    "Canonical insufficient_evidence ModelResponse with claims=[] and reason=unsupported_question."
+  ],
+  "scope_preconditions": [
+    "Exactly one eligible claim; exactly one current chunk independently fully supports it. Reject ambiguity/multi-claim before generation.",
+    "Use existing eligible and validate_claims unchanged on constructed answered path before compiling; validate raw actual output again after generation.",
+    "Do not use expected case chunk IDs to build the grammar; dynamic UUID must be present in current scoped evidence and satisfy existing source/revision/hash/span/quote validation."
+  ],
+  "limits": {
+    "new_tokens_including_eos": 384,
+    "generated_utf8_bytes": 16384,
+    "prompt_tokens": 2048,
+    "prompt_bytes": 65536,
+    "generation_seconds": 110,
+    "request_seconds": 240,
+    "cleanup_seconds": 45,
+    "runner_memory_gib": 8,
+    "qdrant_memory_gib": 1,
+    "trie_edges_max": 768,
+    "trie_accounted_bytes_max": 1048576
+  },
+  "proposed_files": [
+    "local-data/f3-run/constraint-v1-trie.py",
+    "local-data/f3-run/constraint-v1-worker.py",
+    "local-data/f3-run/constraint-v1-single.py",
+    "local-data/f3-run/test-constraint-v1.py"
+  ],
+  "production_files_changed": [],
+  "unchanged": [
+    "v3 prompt",
+    "retrieval threshold/calibration",
+    "retrieved evidence",
+    "model/revision",
+    "greedy settings",
+    "EOS/pad IDs",
+    "schema/parser/grounding",
+    "resource controls",
+    "regression expected answer"
+  ],
+  "approval_required": "Review and approve the isolated generation-time constraint experiment; this is a generation-design change, not renewed approval for already-authorized operations."
+}

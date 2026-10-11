@@ -1,0 +1,57 @@
+{
+  "checkpoint": "SEDA-20261008-rehearsed-partial-rc2",
+  "status": "PARTIAL",
+  "full_f3_acceptance": false,
+  "fresh_f2_passed": 5,
+  "fresh_f2_total": 5,
+  "fresh_f3_passed": 5,
+  "fresh_f3_total": 6,
+  "failed_case": "fresh2-return-2",
+  "failure": "supported question returned no_evidence before generation",
+  "image_id": "sha256:f1dc063ca46a05ccce548121c1f530eb1d7ce2edc87dc27db1f32d3ba2cdf00a",
+  "bundle_sha256": "664ef00e57d60043758ebadd56e5747f20a4269d73eda73d4eae1fe8049f88fc",
+  "launch_guard_sha256": "c530f5eb97857dae4a906c0ad9f0f220571df38e301ddf009030a912986fa777",
+  "retrieval_fingerprint": "73aa0d04f345d7c4609e6fa4329ff7a8bcd46f1495afd25a04f03819eaf75870",
+  "generation_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "threshold": 0.42808731,
+  "calibration_id": "EDM-f2-20261007-v2",
+  "rehearsal": {
+    "exit_code": 0,
+    "factory_ms": 23387.110527999994,
+    "corpus_ready_ms": 73748.45353299998,
+    "runner_peak_bytes": 3024035840,
+    "qdrant_peak_bytes": 385564672,
+    "cleanup_ms": 759.91460098885,
+    "cases": [
+      {
+        "case_id": "edm-answer-1",
+        "passed": true,
+        "retrieval_ms": 13404.388878999953,
+        "generation_ms": 25138.83782200014,
+        "total_ms": 38546.91240299985,
+        "tokens": 80,
+        "stopping_reason": "configured_eos"
+      },
+      {
+        "case_id": "edm-answer-4",
+        "passed": true,
+        "retrieval_ms": 13734.930119999945,
+        "generation_ms": 0,
+        "total_ms": 13736.384456999986,
+        "tokens": 0,
+        "stopping_reason": "no_generation"
+      }
+    ]
+  },
+  "local_tests": {
+    "passed": 397,
+    "warnings": 1,
+    "linux_negatives_passed": 16,
+    "native_negative_skipped": 1
+  },
+  "f4": "omitted: F3 acceptance precondition failed",
+  "published": false,
+  "committed": false,
+  "slides_edited": false,
+  "remaining_approvals_for_local_demo": []
+}

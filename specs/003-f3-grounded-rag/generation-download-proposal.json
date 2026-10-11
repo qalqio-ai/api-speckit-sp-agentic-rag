@@ -1,0 +1,20 @@
+{
+  "status": "proposed_not_acquired",
+  "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+  "license": "Apache-2.0 (upstream pinned model-card declaration)",
+  "license_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct/blob/a10cc1512eabd3dde888204e902eca88bddb4951/README.md",
+  "metadata_url": "https://huggingface.co/api/models/HuggingFaceTB/SmolLM2-360M-Instruct/tree/a10cc1512eabd3dde888204e902eca88bddb4951",
+  "destination": "/Users/edmcbee/Projects/api-speckit-sp-agentic-rag/local-data/f3-models/a10cc1512eabd3dde888204e902eca88bddb4951",
+  "total_bytes": 725784865,
+  "files": [
+    {"path":"config.json","bytes":846,"url":"https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct/resolve/a10cc1512eabd3dde888204e902eca88bddb4951/config.json","upstream_checksum":{"algorithm":"git-blob-sha1","value":"4f2ae86545bb5c1d4fcc55644deef86be50a7dee"},"computed_sha256":null},
+    {"path":"model.safetensors","bytes":723674912,"url":"https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct/resolve/a10cc1512eabd3dde888204e902eca88bddb4951/model.safetensors","upstream_checksum":{"algorithm":"sha256-lfs","value":"e6bffe7435d7ddc10fd3b9a9efd429dafbacb1cb17015fb5562664e7532bf86e"},"computed_sha256":null},
+    {"path":"tokenizer.json","bytes":2104556,"url":"https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct/resolve/a10cc1512eabd3dde888204e902eca88bddb4951/tokenizer.json","upstream_checksum":{"algorithm":"git-blob-sha1","value":"f922b1797f0c88e71addc8393787831f2477a4bd"},"computed_sha256":null},
+    {"path":"tokenizer_config.json","bytes":3764,"url":"https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct/resolve/a10cc1512eabd3dde888204e902eca88bddb4951/tokenizer_config.json","upstream_checksum":{"algorithm":"git-blob-sha1","value":"8c7b22013909450429303ed10be4398bd63f5457"},"computed_sha256":null},
+    {"path":"special_tokens_map.json","bytes":655,"url":"https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct/resolve/a10cc1512eabd3dde888204e902eca88bddb4951/special_tokens_map.json","upstream_checksum":{"algorithm":"git-blob-sha1","value":"44719d2e365acac0637fd25a3acf46494ca45940"},"computed_sha256":null},
+    {"path":"generation_config.json","bytes":132,"url":"https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct/resolve/a10cc1512eabd3dde888204e902eca88bddb4951/generation_config.json","upstream_checksum":{"algorithm":"git-blob-sha1","value":"da6c4d71a43aa7e6f785bdbb28ea5025438a73fa"},"computed_sha256":null}
+  ],
+  "checksum_rules": "Upstream metadata is not a local observation. After approved acquisition verify size, Git blob SHA1 or LFS SHA256 as applicable; compute SHA256 over each complete file and only then create the runtime hash manifest. Model-card/license review metadata stays outside the strict runtime snapshot.",
+  "scope": "Local offline F3 CPU answer generation; read-only mount; no model redistribution or publication. No downloads or installation authorized by this proposal."
+}

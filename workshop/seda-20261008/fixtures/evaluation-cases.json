@@ -1,0 +1,74 @@
+{
+  "schema_version": 3,
+  "kind": "answer_evaluation_cases",
+  "case_set_id": "seda-fresh-20261007-v1",
+  "manifest_sha256": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+  "catalog_sha256": "234709de4639d75b88711525bb56b501f2497cc959054fb1d1e3957af5b2b537",
+  "generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "retrieval_configuration_fingerprint": "e91a67aac7fe729f79512bc5ce2cdcc5aa8f38d172a042af9cfa2894448af04e",
+  "review_attribution": {
+    "owner": "EDM",
+    "reviewer": "EDM",
+    "decision_reference": "User 2026-10-07 authorized preparing/freezing/running fresh questions for SEDA with existing approved sources and models. Agent prepared and checked aliases against unchanged EDM-reviewed source/claim rules; no individual human wording review is asserted.",
+    "approved_at": "2026-10-07T01:00:47.159600+00:00"
+  },
+  "cases": [
+    {
+      "case_id": "fresh-return-1",
+      "use_case_id": "f2-synthetic",
+      "question": "Tell me the policy for returning an unused item.",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "fresh-return-2",
+      "use_case_id": "f2-synthetic",
+      "question": "What conditions apply to returning unused items within seven days?",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "fresh-return-3",
+      "use_case_id": "f2-synthetic",
+      "question": "According to the returns policy, how soon should an unused item be returned?",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "fresh-shipping",
+      "use_case_id": "f2-synthetic",
+      "question": "What are the international shipping charges for parcels?",
+      "expected_status": "insufficient_evidence",
+      "expected_reason": "no_evidence",
+      "expected_claim_ids": [],
+      "acceptable_source_ids": []
+    },
+    {
+      "case_id": "fresh-used",
+      "use_case_id": "f2-synthetic",
+      "question": "May I return a used item?",
+      "expected_status": "insufficient_evidence",
+      "expected_reason": "unsupported_question",
+      "expected_claim_ids": [],
+      "acceptable_source_ids": []
+    }
+  ]
+}

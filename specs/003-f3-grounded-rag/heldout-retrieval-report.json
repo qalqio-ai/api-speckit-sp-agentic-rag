@@ -1,0 +1,93 @@
+{
+  "project": "f3-d49cfc208b5744e997cefbb978c6ae35",
+  "acceptance_claimed": false,
+  "kind": "held_out_retrieval_acceptance",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "held-deadline",
+      "status": "matched",
+      "error": null,
+      "passed": true,
+      "isolated": true,
+      "expected_source_rank": 1,
+      "evidence": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "score": 0.701832,
+          "rank": 1
+        }
+      ],
+      "retrieval_searches": 1,
+      "retrieval_ms": 10224.647688999994,
+      "generation_ms": 0,
+      "total_ms": 10224.647688999994
+    },
+    {
+      "case_id": "held-proof",
+      "status": "no_match",
+      "error": null,
+      "passed": false,
+      "isolated": true,
+      "expected_source_rank": null,
+      "evidence": [],
+      "retrieval_searches": 1,
+      "retrieval_ms": 10279.517179999999,
+      "generation_ms": 0,
+      "total_ms": 10279.517179999999
+    },
+    {
+      "case_id": "held-hours",
+      "status": "matched",
+      "error": null,
+      "passed": true,
+      "isolated": true,
+      "expected_source_rank": 1,
+      "evidence": [
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "score": 0.5350859,
+          "rank": 1
+        }
+      ],
+      "retrieval_searches": 1,
+      "retrieval_ms": 9897.167952000003,
+      "generation_ms": 0,
+      "total_ms": 9897.167952000003
+    },
+    {
+      "case_id": "held-delivery",
+      "status": "no_match",
+      "error": null,
+      "passed": true,
+      "isolated": true,
+      "expected_source_rank": null,
+      "evidence": [],
+      "retrieval_searches": 1,
+      "retrieval_ms": 10425.194379000004,
+      "generation_ms": 0,
+      "total_ms": 10425.194379000004
+    },
+    {
+      "case_id": "held-repair",
+      "status": "no_match",
+      "error": null,
+      "passed": true,
+      "isolated": true,
+      "expected_source_rank": null,
+      "evidence": [],
+      "retrieval_searches": 1,
+      "retrieval_ms": 10022.320108000002,
+      "generation_ms": 0,
+      "total_ms": 10022.320108000002
+    }
+  ],
+  "all_cases_pass": false,
+  "peak_bytes": 1164079104,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 418820096,
+  "stack_absent": true,
+  "exit_code": 0
+}

@@ -1,0 +1,1222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "F3 proposed serialization contract",
+  "description": "Design only. Local external refs, semantic checks, actual approval required. No schema-valid fixture grants consent.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/SessionRequest"
+    },
+    {
+      "$ref": "#/$defs/SessionResult"
+    },
+    {
+      "$ref": "#/$defs/GroundingCatalog"
+    },
+    {
+      "$ref": "#/$defs/F3ApprovalReceipt"
+    },
+    {
+      "$ref": "#/$defs/GenerationAssetManifest"
+    },
+    {
+      "$ref": "#/$defs/EvaluationCaseSet"
+    }
+  ],
+  "$defs": {
+    "ReviewAttribution": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "decision_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "owner",
+        "reviewer",
+        "decision_reference",
+        "approved_at"
+      ],
+      "additionalProperties": false
+    },
+    "AnswerRequest": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "const": "answer"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "op",
+        "use_case_id",
+        "question"
+      ],
+      "additionalProperties": false
+    },
+    "SupportSpan": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "source_id",
+        "revision",
+        "content_sha256",
+        "start",
+        "end",
+        "quote"
+      ],
+      "additionalProperties": false
+    },
+    "SourceRule": {
+      "type": "object",
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "assessment": {
+          "const": "full_source_reviewed"
+        }
+      },
+      "required": [
+        "use_case_id",
+        "source_id",
+        "revision",
+        "content_sha256",
+        "assessment"
+      ],
+      "additionalProperties": false
+    },
+    "CatalogClaim": {
+      "type": "object",
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "claim_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "support_alternatives": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SupportSpan"
+            },
+            "minItems": 1,
+            "maxItems": 16
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "conflicting_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 0,
+          "maxItems": 64,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "use_case_id",
+        "claim_id",
+        "text",
+        "support_alternatives",
+        "conflicting_claim_ids"
+      ],
+      "additionalProperties": false
+    },
+    "QuestionCoverage": {
+      "type": "object",
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "expected_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 0,
+          "maxItems": 5,
+          "uniqueItems": true
+        },
+        "insufficient_reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "no_evidence",
+                "unsupported_question",
+                "conflicting_evidence"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "use_case_id",
+        "question",
+        "expected_claim_ids",
+        "insufficient_reason"
+      ],
+      "additionalProperties": false
+    },
+    "GroundingCatalog": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 3
+        },
+        "kind": {
+          "const": "grounding_catalog"
+        },
+        "catalog_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "review_attribution": {
+          "$ref": "#/$defs/ReviewAttribution"
+        },
+        "source_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SourceRule"
+          },
+          "minItems": 1,
+          "maxItems": 32
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CatalogClaim"
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/QuestionCoverage"
+          },
+          "minItems": 1,
+          "maxItems": 128
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "catalog_id",
+        "manifest_sha256",
+        "review_attribution",
+        "source_rules",
+        "claims",
+        "questions"
+      ],
+      "additionalProperties": false
+    },
+    "ModelClaim": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "chunk_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "claim_id",
+        "text",
+        "chunk_ids"
+      ],
+      "additionalProperties": false
+    },
+    "ModelResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "answered",
+            "insufficient_evidence"
+          ]
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ModelClaim"
+          },
+          "minItems": 0,
+          "maxItems": 5
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "const": "unsupported_question"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "claims",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "answered"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "minItems": 1
+              },
+              "reason": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "insufficient_evidence"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "maxItems": 0
+              },
+              "reason": {
+                "const": "unsupported_question"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ExecutionLimits": {
+      "type": "object",
+      "properties": {
+        "request_seconds": {
+          "const": 240
+        },
+        "retrieval_seconds": {
+          "const": 120
+        },
+        "generation_seconds": {
+          "const": 110
+        },
+        "validation_seconds": {
+          "const": 10
+        },
+        "startup_seconds": {
+          "const": 120
+        },
+        "teardown_seconds": {
+          "const": 45
+        },
+        "prompt_bytes": {
+          "const": 65536
+        },
+        "prompt_tokens": {
+          "const": 2048
+        },
+        "completion_tokens": {
+          "const": 384
+        },
+        "completion_bytes": {
+          "const": 16384
+        },
+        "answer_bytes": {
+          "const": 131072
+        },
+        "max_claims": {
+          "const": 5
+        },
+        "runner_memory_bytes": {
+          "const": 8589934592
+        },
+        "qdrant_memory_bytes": {
+          "const": 1073741824
+        },
+        "runner_cpus": {
+          "const": 4
+        }
+      },
+      "required": [
+        "request_seconds",
+        "retrieval_seconds",
+        "generation_seconds",
+        "validation_seconds",
+        "startup_seconds",
+        "teardown_seconds",
+        "prompt_bytes",
+        "prompt_tokens",
+        "completion_tokens",
+        "completion_bytes",
+        "answer_bytes",
+        "max_claims",
+        "runner_memory_bytes",
+        "qdrant_memory_bytes",
+        "runner_cpus"
+      ],
+      "additionalProperties": false
+    },
+    "GenerationConfiguration": {
+      "type": "object",
+      "properties": {
+        "model_id": {
+          "const": "HuggingFaceTB/SmolLM2-360M-Instruct"
+        },
+        "revision": {
+          "const": "a10cc1512eabd3dde888204e902eca88bddb4951"
+        },
+        "asset_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "configuration_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "catalog_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "dtype": {
+          "const": "float32"
+        },
+        "device": {
+          "const": "cpu"
+        },
+        "do_sample": {
+          "const": false
+        },
+        "num_beams": {
+          "const": 1
+        },
+        "intraop_threads": {
+          "const": 4
+        },
+        "interop_threads": {
+          "const": 1
+        }
+      },
+      "required": [
+        "model_id",
+        "revision",
+        "asset_manifest_sha256",
+        "configuration_fingerprint",
+        "catalog_sha256",
+        "dtype",
+        "device",
+        "do_sample",
+        "num_beams",
+        "intraop_threads",
+        "interop_threads"
+      ],
+      "additionalProperties": false
+    },
+    "AnswerConfiguration": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "deterministic",
+            "local_live"
+          ]
+        },
+        "retrieval": {
+          "$ref": "../../002-f2-retrieval/contracts/serialization.schema.json#/$defs/RetrievalConfiguration"
+        },
+        "generation": {
+          "$ref": "#/$defs/GenerationConfiguration"
+        },
+        "limits": {
+          "$ref": "#/$defs/ExecutionLimits"
+        }
+      },
+      "required": [
+        "mode",
+        "retrieval",
+        "generation",
+        "limits"
+      ],
+      "additionalProperties": false
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "invalid_input",
+            "unknown_operation",
+            "unknown_use_case",
+            "question_too_long",
+            "configuration_mismatch",
+            "catalog_mismatch",
+            "context_too_large",
+            "model_unavailable",
+            "generation_failed",
+            "invalid_model_response",
+            "invalid_citation",
+            "grounding_failed",
+            "output_too_large",
+            "deadline_exceeded",
+            "session_unavailable",
+            "retrieval_failed"
+          ]
+        },
+        "message": {
+          "enum": [
+            "invalid_input",
+            "unknown_operation",
+            "unknown_use_case",
+            "question_too_long",
+            "configuration_mismatch",
+            "catalog_mismatch",
+            "context_too_large",
+            "model_unavailable",
+            "generation_failed",
+            "invalid_model_response",
+            "invalid_citation",
+            "grounding_failed",
+            "output_too_large",
+            "deadline_exceeded",
+            "session_unavailable",
+            "retrieval_failed"
+          ]
+        },
+        "cause_code": {
+          "anyOf": [
+            {
+              "$ref": "../../002-f2-retrieval/contracts/serialization.schema.json#/$defs/Error/properties/code"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "cause_code"
+      ],
+      "additionalProperties": false
+    },
+    "AnswerResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 3
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "enum": [
+            "answer",
+            null
+          ]
+        },
+        "status": {
+          "enum": [
+            "answered",
+            "insufficient_evidence",
+            "rejected",
+            "failed"
+          ]
+        },
+        "use_case_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "configuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AnswerConfiguration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "elapsed_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "retrieval_searches": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "generation_attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ModelClaim"
+          },
+          "minItems": 0,
+          "maxItems": 5
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "../../002-f2-retrieval/contracts/serialization.schema.json#/$defs/EvidencePassage"
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "no_evidence",
+                "unsupported_question",
+                "conflicting_evidence"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Error"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "run_id",
+        "op",
+        "status",
+        "use_case_id",
+        "configuration",
+        "elapsed_ms",
+        "retrieval_searches",
+        "generation_attempts",
+        "claims",
+        "citations",
+        "reason",
+        "error"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "answered"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "op": {
+                "const": "answer"
+              },
+              "claims": {
+                "minItems": 1
+              },
+              "citations": {
+                "minItems": 1
+              },
+              "reason": {
+                "type": "null"
+              },
+              "error": {
+                "type": "null"
+              },
+              "generation_attempts": {
+                "const": 1
+              },
+              "use_case_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "configuration": {
+                "$ref": "#/$defs/AnswerConfiguration"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "insufficient_evidence"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "op": {
+                "const": "answer"
+              },
+              "claims": {
+                "maxItems": 0
+              },
+              "citations": {
+                "maxItems": 0
+              },
+              "reason": {
+                "enum": [
+                  "no_evidence",
+                  "unsupported_question",
+                  "conflicting_evidence"
+                ]
+              },
+              "error": {
+                "type": "null"
+              },
+              "use_case_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "configuration": {
+                "$ref": "#/$defs/AnswerConfiguration"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "rejected"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "maxItems": 0
+              },
+              "citations": {
+                "maxItems": 0
+              },
+              "reason": {
+                "type": "null"
+              },
+              "error": {
+                "$ref": "#/$defs/Error"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "failed"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "maxItems": 0
+              },
+              "citations": {
+                "maxItems": 0
+              },
+              "reason": {
+                "type": "null"
+              },
+              "error": {
+                "$ref": "#/$defs/Error"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "F3ApprovalReceipt": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "const": "f3_local_grounded_answers"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "catalog_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "review_attribution": {
+          "$ref": "#/$defs/ReviewAttribution"
+        },
+        "access_scope": {
+          "const": "local_demo_operator"
+        },
+        "retention": {
+          "const": "until_demo_end"
+        },
+        "deletion_scope": {
+          "const": "owned_run_collection_and_stack"
+        }
+      },
+      "required": [
+        "purpose",
+        "manifest_sha256",
+        "catalog_sha256",
+        "review_attribution",
+        "access_scope",
+        "retention",
+        "deletion_scope"
+      ],
+      "additionalProperties": false
+    },
+    "GenerationAssetManifest": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "generation_assets"
+        },
+        "model_id": {
+          "const": "HuggingFaceTB/SmolLM2-360M-Instruct"
+        },
+        "revision": {
+          "const": "a10cc1512eabd3dde888204e902eca88bddb4951"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "review_attribution": {
+          "$ref": "#/$defs/ReviewAttribution"
+        }
+      },
+      "required": [
+        "kind",
+        "model_id",
+        "revision",
+        "files",
+        "review_attribution"
+      ],
+      "additionalProperties": false
+    },
+    "EvaluationCase": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "expected_status": {
+          "enum": [
+            "answered",
+            "insufficient_evidence"
+          ]
+        },
+        "expected_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 0,
+          "maxItems": 5,
+          "uniqueItems": true
+        },
+        "expected_reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "no_evidence",
+                "unsupported_question",
+                "conflicting_evidence"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "acceptable_source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 0,
+          "maxItems": 32,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "case_id",
+        "use_case_id",
+        "question",
+        "expected_status",
+        "expected_claim_ids",
+        "expected_reason",
+        "acceptable_source_ids"
+      ],
+      "additionalProperties": false
+    },
+    "EvaluationCaseSet": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 3
+        },
+        "kind": {
+          "const": "answer_evaluation_cases"
+        },
+        "case_set_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "catalog_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "generation_configuration_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "retrieval_configuration_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "review_attribution": {
+          "$ref": "#/$defs/ReviewAttribution"
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvaluationCase"
+          },
+          "minItems": 5,
+          "maxItems": 128
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "case_set_id",
+        "manifest_sha256",
+        "catalog_sha256",
+        "generation_configuration_fingerprint",
+        "retrieval_configuration_fingerprint",
+        "review_attribution",
+        "cases"
+      ],
+      "additionalProperties": false
+    },
+    "SessionRequest": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AnswerRequest"
+        },
+        {
+          "$ref": "../../002-f2-retrieval/contracts/serialization.schema.json#/$defs/SessionRequest"
+        }
+      ]
+    },
+    "SessionResult": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AnswerResult"
+        },
+        {
+          "$ref": "../../002-f2-retrieval/contracts/serialization.schema.json#/$defs/SessionResult"
+        }
+      ]
+    },
+    "ScopeSnapshot": {
+      "type": "object",
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "registry_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "represented_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "content_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "source_id",
+              "revision",
+              "content_sha256"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 32,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "use_case_id",
+        "registry_fingerprint",
+        "represented_sources"
+      ],
+      "additionalProperties": false
+    },
+    "RetrievalReceipt": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "../../002-f2-retrieval/contracts/serialization.schema.json#/$defs/RetrievalResult"
+        },
+        "scope_snapshot": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScopeSnapshot"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrieval_searches": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "retrieval_deadline": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "result",
+        "scope_snapshot",
+        "retrieval_searches",
+        "retrieval_deadline"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

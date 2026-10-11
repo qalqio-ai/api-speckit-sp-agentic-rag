@@ -1,0 +1,288 @@
+{
+  "commands": {
+    "docker_version": {
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{.Client.Version}} {{.Server.Version}} {{.Server.Os}} {{.Server.Arch}}"
+      ],
+      "exit_code": 0,
+      "stdout": "28.1.1 28.1.1 linux amd64",
+      "stderr": ""
+    },
+    "compose_version": {
+      "command": [
+        "docker",
+        "compose",
+        "version"
+      ],
+      "exit_code": 0,
+      "stdout": "Docker Compose version v2.36.0-desktop.1",
+      "stderr": ""
+    },
+    "docker_resources": {
+      "command": [
+        "docker",
+        "info",
+        "--format",
+        "{{.MemTotal}} {{.NCPU}} {{.OperatingSystem}} {{.KernelVersion}}"
+      ],
+      "exit_code": 0,
+      "stdout": "4101431296 16 Docker Desktop 6.10.14-linuxkit",
+      "stderr": ""
+    },
+    "host_os": {
+      "command": [
+        "sw_vers"
+      ],
+      "exit_code": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t13.2.1\nBuildVersion:\t\t22D68",
+      "stderr": ""
+    },
+    "host_arch": {
+      "command": [
+        "uname",
+        "-m"
+      ],
+      "exit_code": 0,
+      "stdout": "x86_64",
+      "stderr": ""
+    },
+    "host_memory": {
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.memsize"
+      ],
+      "exit_code": 0,
+      "stdout": "68719476736",
+      "stderr": ""
+    },
+    "host_cpu": {
+      "command": [
+        "sysctl",
+        "-n",
+        "machdep.cpu.brand_string"
+      ],
+      "exit_code": 0,
+      "stdout": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+      "stderr": ""
+    },
+    "docker_desktop": {
+      "command": [
+        "defaults",
+        "read",
+        "/Applications/Docker.app/Contents/Info",
+        "CFBundleShortVersionString"
+      ],
+      "exit_code": 0,
+      "stdout": "4.41.2",
+      "stderr": ""
+    }
+  },
+  "owned_projects": {
+    "f3-5128b9dab90940fb8d09675cd64249e7": {
+      "container": {
+        "command": [
+          "docker",
+          "container",
+          "ls",
+          "--all",
+          "--filter",
+          "label=com.docker.compose.project=f3-5128b9dab90940fb8d09675cd64249e7",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "network": {
+        "command": [
+          "docker",
+          "network",
+          "ls",
+          "--filter",
+          "label=com.docker.compose.project=f3-5128b9dab90940fb8d09675cd64249e7",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "f3-693b07ecfad34b4eb18a5a296738414d": {
+      "container": {
+        "command": [
+          "docker",
+          "container",
+          "ls",
+          "--all",
+          "--filter",
+          "label=com.docker.compose.project=f3-693b07ecfad34b4eb18a5a296738414d",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "network": {
+        "command": [
+          "docker",
+          "network",
+          "ls",
+          "--filter",
+          "label=com.docker.compose.project=f3-693b07ecfad34b4eb18a5a296738414d",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "f3-7556594bc17d4cafb966649e3920d0b4": {
+      "container": {
+        "command": [
+          "docker",
+          "container",
+          "ls",
+          "--all",
+          "--filter",
+          "label=com.docker.compose.project=f3-7556594bc17d4cafb966649e3920d0b4",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "network": {
+        "command": [
+          "docker",
+          "network",
+          "ls",
+          "--filter",
+          "label=com.docker.compose.project=f3-7556594bc17d4cafb966649e3920d0b4",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "f3-b70696d04bae4431a4345ed76449ffe4": {
+      "container": {
+        "command": [
+          "docker",
+          "container",
+          "ls",
+          "--all",
+          "--filter",
+          "label=com.docker.compose.project=f3-b70696d04bae4431a4345ed76449ffe4",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "network": {
+        "command": [
+          "docker",
+          "network",
+          "ls",
+          "--filter",
+          "label=com.docker.compose.project=f3-b70696d04bae4431a4345ed76449ffe4",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "f3-f17ee27939aa41879ba060efe23c4c03": {
+      "container": {
+        "command": [
+          "docker",
+          "container",
+          "ls",
+          "--all",
+          "--filter",
+          "label=com.docker.compose.project=f3-f17ee27939aa41879ba060efe23c4c03",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "network": {
+        "command": [
+          "docker",
+          "network",
+          "ls",
+          "--filter",
+          "label=com.docker.compose.project=f3-f17ee27939aa41879ba060efe23c4c03",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "f3-f72ba0a78f4641cbbdba3bbb3ba3dde9": {
+      "container": {
+        "command": [
+          "docker",
+          "container",
+          "ls",
+          "--all",
+          "--filter",
+          "label=com.docker.compose.project=f3-f72ba0a78f4641cbbdba3bbb3ba3dde9",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "network": {
+        "command": [
+          "docker",
+          "network",
+          "ls",
+          "--filter",
+          "label=com.docker.compose.project=f3-f72ba0a78f4641cbbdba3bbb3ba3dde9",
+          "--format",
+          "{{.ID}}"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  },
+  "api_smoke_absence": {
+    "command": [
+      "docker",
+      "container",
+      "ls",
+      "--all",
+      "--filter",
+      "label=local.seda.smoke=seda-api-0b12517a87db4022b2396b1f22113751",
+      "--format",
+      "{{.ID}}"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "independent_absence_pass": true
+}

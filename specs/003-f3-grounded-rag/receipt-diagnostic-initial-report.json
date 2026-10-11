@@ -1,0 +1,90 @@
+{
+  "project": "f3-641f7d9a05664317947b2e0f4631b5f9",
+  "acceptance_claimed": false,
+  "kind": "receipt_regression_diagnostics",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "receipt-regression",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.4537802,
+      "best_expected_source_score": 0.4537802,
+      "best_expected_source_rank": 1,
+      "inventory_ms": 630.814214000111,
+      "encoding_ms": 7441.840451999951,
+      "search_ms": 642.9415740001332,
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "score": 0.4537802,
+          "rank": 1,
+          "passes_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "score": -0.068036094,
+          "rank": 2,
+          "passes_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "expected_chunk_present": true,
+      "worker_timings": [
+        {
+          "pid": 180,
+          "start_monotonic": 1148.953614005,
+          "op": "storage",
+          "path_kind": "scroll",
+          "http_operation_ms": 327.6470480000171,
+          "worker_total_ms": 328.99132300008205
+        },
+        {
+          "pid": 181,
+          "start_monotonic": 1149.590173662,
+          "op": "encode",
+          "path_kind": "other",
+          "tokenizer_asset_import_ms": 6365.535273999967,
+          "model_load_ms": 723.4087090000685,
+          "embedding_ms": 28.479797000045437,
+          "worker_total_ms": 7118.416191999813
+        },
+        {
+          "pid": 224,
+          "start_monotonic": 1157.027449254,
+          "op": "storage",
+          "path_kind": "query",
+          "http_operation_ms": 339.88675200021135,
+          "worker_total_ms": 341.25388500001463
+        }
+      ],
+      "parent_calls": [
+        {
+          "op": "storage",
+          "elapsed_ms": 629.3213920000653
+        },
+        {
+          "op": "encode",
+          "elapsed_ms": 7441.764734999879
+        },
+        {
+          "op": "storage",
+          "elapsed_ms": 642.7401970001938
+        }
+      ],
+      "elapsed_ms": 8715.857754000126,
+      "retrieval_searches": 1
+    }
+  ],
+  "diagnostic_only": true,
+  "elapsed_ms": 40546.149501999935,
+  "peak_bytes": 916787200,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 376528896,
+  "stack_absent": true,
+  "exit_code": 0
+}

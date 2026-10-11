@@ -1,0 +1,1342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "F1 proposed local ingestion serialization contract v1",
+  "description": "Design artifact only. Schema validity is not evidence of corpus approval or runtime behavior. Select the appropriate $defs entry for validation.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ApprovalManifest"
+    },
+    {
+      "$ref": "#/$defs/OperationRequest"
+    },
+    {
+      "$ref": "#/$defs/OperationResult"
+    }
+  ],
+  "$defs": {
+    "NonBlank": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "Count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "Sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "Uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "Scope": {
+      "type": "object",
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "use_case_id",
+        "source_id"
+      ],
+      "additionalProperties": false
+    },
+    "ApprovedSource": {
+      "type": "object",
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "use_case_id",
+        "source_id",
+        "revision",
+        "content_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "ApprovalManifest": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "decision_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "classification": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "access_scope": {
+          "const": "local_demo_operator"
+        },
+        "redistribution_scope": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "retention": {
+          "const": "until_demo_end"
+        },
+        "deletion_scope": {
+          "const": "owned_run_collection_and_stack"
+        },
+        "allowed_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ApprovedSource"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schema_version",
+        "owner",
+        "reviewer",
+        "decision_reference",
+        "approved_at",
+        "classification",
+        "access_scope",
+        "redistribution_scope",
+        "retention",
+        "deletion_scope",
+        "allowed_sources"
+      ],
+      "additionalProperties": false
+    },
+    "RunConfiguration": {
+      "type": "object",
+      "properties": {
+        "model_id": {
+          "const": "sentence-transformers/all-MiniLM-L6-v2"
+        },
+        "model_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "model_file_sha256": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "tokenizer_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "configuration_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "vector_dimension": {
+          "const": 384
+        },
+        "distance": {
+          "const": "cosine"
+        },
+        "window_tokens": {
+          "const": 200
+        },
+        "overlap_tokens": {
+          "const": 20
+        },
+        "model_max_tokens": {
+          "const": 256
+        },
+        "source_max_utf8_bytes": {
+          "const": 65536
+        },
+        "source_max_chunks": {
+          "const": 2048
+        },
+        "ingestion_deadline_seconds": {
+          "const": 120
+        },
+        "storage_timeout_seconds": {
+          "const": 10
+        },
+        "cleanup_timeout_seconds": {
+          "const": 10
+        },
+        "tmpfs_max_bytes": {
+          "const": 268435456
+        },
+        "worker_shutdown_seconds": {
+          "const": 5
+        },
+        "worker_term_grace_seconds": {
+          "const": 2
+        },
+        "worker_kill_wait_seconds": {
+          "const": 3
+        },
+        "run_teardown_seconds": {
+          "const": 45
+        },
+        "docker_teardown_seconds": {
+          "const": 30
+        },
+        "compose_down_wall_seconds": {
+          "const": 15
+        },
+        "container_stop_grace_seconds": {
+          "const": 10
+        },
+        "docker_kill_wall_seconds": {
+          "const": 5
+        },
+        "docker_remove_wall_seconds": {
+          "const": 5
+        },
+        "docker_verify_wall_seconds": {
+          "const": 5
+        }
+      },
+      "required": [
+        "model_id",
+        "model_commit",
+        "model_file_sha256",
+        "tokenizer_fingerprint",
+        "configuration_fingerprint",
+        "vector_dimension",
+        "distance",
+        "window_tokens",
+        "overlap_tokens",
+        "model_max_tokens",
+        "source_max_utf8_bytes",
+        "source_max_chunks",
+        "ingestion_deadline_seconds",
+        "storage_timeout_seconds",
+        "cleanup_timeout_seconds",
+        "tmpfs_max_bytes",
+        "worker_shutdown_seconds",
+        "worker_term_grace_seconds",
+        "worker_kill_wait_seconds",
+        "run_teardown_seconds",
+        "docker_teardown_seconds",
+        "compose_down_wall_seconds",
+        "container_stop_grace_seconds",
+        "docker_kill_wall_seconds",
+        "docker_remove_wall_seconds",
+        "docker_verify_wall_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "IngestRequest": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "const": "ingest"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "op",
+        "use_case_id",
+        "source_id",
+        "title",
+        "revision",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "InspectRequest": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "const": "inspect"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "op",
+        "use_case_id"
+      ],
+      "additionalProperties": false
+    },
+    "ClearRequest": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "const": "clear"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "op",
+        "use_case_id"
+      ],
+      "additionalProperties": false
+    },
+    "CloseRequest": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "const": "close"
+        }
+      },
+      "required": [
+        "op"
+      ],
+      "additionalProperties": false
+    },
+    "OperationRequest": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/IngestRequest"
+        },
+        {
+          "$ref": "#/$defs/InspectRequest"
+        },
+        {
+          "$ref": "#/$defs/ClearRequest"
+        },
+        {
+          "$ref": "#/$defs/CloseRequest"
+        }
+      ]
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "invalid_input",
+            "endpoint_not_allowed",
+            "source_not_approved",
+            "model_unavailable",
+            "embedding_failed",
+            "index_failed",
+            "deadline_exceeded",
+            "incomplete_source",
+            "cleanup_failed"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "ChunkRecord": {
+      "type": "object",
+      "properties": {
+        "chunk_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "tokenizer_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "configuration_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "model_id": {
+          "const": "sentence-transformers/all-MiniLM-L6-v2"
+        },
+        "model_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "vector": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 384,
+          "maxItems": 384
+        }
+      },
+      "required": [
+        "chunk_id",
+        "use_case_id",
+        "source_id",
+        "title",
+        "revision",
+        "content_sha256",
+        "start",
+        "end",
+        "text",
+        "tokenizer_fingerprint",
+        "configuration_fingerprint",
+        "model_id",
+        "model_commit",
+        "vector"
+      ],
+      "additionalProperties": false
+    },
+    "IngestData": {
+      "type": "object",
+      "properties": {
+        "attempted_revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "current_verified_revision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_status": {
+          "enum": [
+            "unseen",
+            "complete",
+            "incomplete",
+            "cleared"
+          ]
+        },
+        "ready": {
+          "type": "boolean"
+        },
+        "intended_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "attempted_revision",
+        "current_verified_revision",
+        "source_status",
+        "ready",
+        "intended_count",
+        "current_count"
+      ],
+      "additionalProperties": false
+    },
+    "SourceInventory": {
+      "type": "object",
+      "properties": {
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "current_verified_revision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attempted_revision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_status": {
+          "enum": [
+            "complete",
+            "incomplete"
+          ]
+        },
+        "ready": {
+          "type": "boolean"
+        },
+        "expected_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "records": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ChunkRecord"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "use_case_id",
+        "source_id",
+        "current_verified_revision",
+        "attempted_revision",
+        "source_status",
+        "ready",
+        "expected_count",
+        "current_count",
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "InspectData": {
+      "type": "object",
+      "properties": {
+        "sources": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SourceInventory"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sources",
+        "current_count"
+      ],
+      "additionalProperties": false
+    },
+    "ClearData": {
+      "type": "object",
+      "properties": {
+        "remaining_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "remaining_count"
+      ],
+      "additionalProperties": false
+    },
+    "CleanupData": {
+      "type": "object",
+      "properties": {
+        "collection_removed": {
+          "type": "boolean"
+        },
+        "remaining_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "collection_removed",
+        "remaining_count"
+      ],
+      "additionalProperties": false
+    },
+    "IngestResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "ingest"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "rejected",
+            "failed",
+            "incomplete"
+          ]
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Scope"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "configuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RunConfiguration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IngestData"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Error"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "run_id",
+        "op",
+        "status",
+        "scope",
+        "configuration",
+        "data",
+        "error"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "null"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RunConfiguration"
+              },
+              "data": {
+                "$ref": "#/$defs/IngestData"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "error": {
+                "$ref": "#/$defs/Error"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "complete",
+                  "incomplete"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "scope": {
+                "$ref": "#/$defs/Scope"
+              },
+              "data": {
+                "$ref": "#/$defs/IngestData"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RunConfiguration"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "InspectResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "inspect"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "rejected",
+            "failed",
+            "incomplete"
+          ]
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Scope"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "configuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RunConfiguration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InspectData"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Error"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "run_id",
+        "op",
+        "status",
+        "scope",
+        "configuration",
+        "data",
+        "error"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "null"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RunConfiguration"
+              },
+              "data": {
+                "$ref": "#/$defs/InspectData"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "error": {
+                "$ref": "#/$defs/Error"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "complete",
+                  "incomplete"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "scope": {
+                "$ref": "#/$defs/Scope"
+              },
+              "data": {
+                "$ref": "#/$defs/InspectData"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RunConfiguration"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ClearResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "clear"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "rejected",
+            "incomplete"
+          ]
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Scope"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "configuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RunConfiguration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ClearData"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Error"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "run_id",
+        "op",
+        "status",
+        "scope",
+        "configuration",
+        "data",
+        "error"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "null"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RunConfiguration"
+              },
+              "data": {
+                "$ref": "#/$defs/ClearData"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "error": {
+                "$ref": "#/$defs/Error"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "complete",
+                  "incomplete"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "scope": {
+                "$ref": "#/$defs/Scope"
+              },
+              "data": {
+                "$ref": "#/$defs/ClearData"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RunConfiguration"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CloseResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "const": "close"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "failed"
+          ]
+        },
+        "scope": {
+          "type": "null"
+        },
+        "configuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RunConfiguration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CleanupData"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Error"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "run_id",
+        "op",
+        "status",
+        "scope",
+        "configuration",
+        "data",
+        "error"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "null"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RunConfiguration"
+              },
+              "data": {
+                "$ref": "#/$defs/CleanupData"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "error": {
+                "$ref": "#/$defs/Error"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ErrorResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "type": "null"
+        },
+        "status": {
+          "enum": [
+            "rejected",
+            "failed"
+          ]
+        },
+        "scope": {
+          "type": "null"
+        },
+        "configuration": {
+          "type": "null"
+        },
+        "data": {
+          "type": "null"
+        },
+        "error": {
+          "$ref": "#/$defs/Error"
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "run_id",
+        "op",
+        "status",
+        "scope",
+        "configuration",
+        "data",
+        "error"
+      ],
+      "additionalProperties": false
+    },
+    "OperationResult": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/IngestResult"
+        },
+        {
+          "$ref": "#/$defs/InspectResult"
+        },
+        {
+          "$ref": "#/$defs/ClearResult"
+        },
+        {
+          "$ref": "#/$defs/CloseResult"
+        },
+        {
+          "$ref": "#/$defs/ErrorResult"
+        }
+      ]
+    }
+  }
+}

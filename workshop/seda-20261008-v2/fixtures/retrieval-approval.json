@@ -1,0 +1,11 @@
+{
+  "purpose": "f2_local_retrieval",
+  "manifest_sha256": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+  "owner": "EDM",
+  "reviewer": "EDM",
+  "decision_reference": "User in this session: Yes i\u2019m EDM or emcbee@alphaqidz.com and is the owner/reviewer. I approved all. (2026-10-04)",
+  "approved_at": "2026-10-04T02:37:38.333791Z",
+  "access_scope": "local_demo_operator",
+  "retention": "until_demo_end",
+  "deletion_scope": "owned_run_collection_and_stack"
+}

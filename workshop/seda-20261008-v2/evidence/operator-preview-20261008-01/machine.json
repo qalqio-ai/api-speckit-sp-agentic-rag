@@ -1,0 +1,33 @@
+{
+  "actual_presentation_machine": "UNCONFIRMED: user has not identified this host as the presentation machine",
+  "execution_host": "current repository Intel Mac; matches prior tested OS/architecture/CPU",
+  "commands": [
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "exit_code": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t13.2.1\nBuildVersion:\t\t22D68",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uname",
+        "-m"
+      ],
+      "exit_code": 0,
+      "stdout": "x86_64",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sysctl",
+        "-n",
+        "machdep.cpu.brand_string"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "sysctl: sysctl fmt -1 1024 1: Operation not permitted\n"
+    }
+  ]
+}

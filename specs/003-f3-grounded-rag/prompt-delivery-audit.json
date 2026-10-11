@@ -1,0 +1,35 @@
+{
+  "kind": "retrospective_evidence_audit",
+  "cases": [
+    {
+      "version": "v2",
+      "report": "prompt-v2-parser-replay-report.json",
+      "proposal_sha256": "5c092694cc39e4fa3b187669bcadd7fd154d2cb0e25497e6cb383dfd41788d49",
+      "system_sha256": "c4aa4bb69891335828aa2188911460b9e84cd1c1205b3cb0ed3a8dedc0c873f9",
+      "context_sha256": "3e6e8c29f78de7171b365eafdd08a7bf4ab364a30829f4ad3ec04192f8e02fac",
+      "prompt_tokens": 630,
+      "prompt_bytes": 1642,
+      "output_tokens": 673,
+      "new_tokens": 43,
+      "raw_output_sha256": "b8a8dfaedf1f39a33cb789ba532f366133c7f4caa2309a6254718e11d3aa90f5"
+    },
+    {
+      "version": "v3",
+      "report": "prompt-v3-single-report.json",
+      "proposal_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+      "system_sha256": "39c6a894170f8211401eae00ca8cbdb85b752cb8ebd7c7f56bad6ebafe814247",
+      "context_sha256": "3e6e8c29f78de7171b365eafdd08a7bf4ab364a30829f4ad3ec04192f8e02fac",
+      "prompt_tokens": 684,
+      "prompt_bytes": 1894,
+      "output_tokens": 727,
+      "new_tokens": 43,
+      "raw_output_sha256": "b8a8dfaedf1f39a33cb789ba532f366133c7f4caa2309a6254718e11d3aa90f5"
+    }
+  ],
+  "limitations": [
+    "Historical final rendered bytes and input-token IDs were not retained or hashed.",
+    "Current helper-source inspection is not a historical source attestation.",
+    "Identical completion does not establish cache use or prove semantic prompt insensitivity."
+  ],
+  "cache_inspection": "Current retained helpers call the real tokenizer and real model.generate; production starts fresh exec workers and uses local-only model assets. No response cache found. Per-call KV caching is distinct from a response cache."
+}

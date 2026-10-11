@@ -1,0 +1,68 @@
+{
+  "kind": "single_constrained_selection_regression_findings",
+  "acceptance_claimed": false,
+  "regression_pass": true,
+  "output_sha256": "7632418497c33d8764cc6b6a01e59892338c7e70ca843f7a94642d38f7e85bb6",
+  "verified_rendered_input_sha256": "a04aa07f55f270f9ea0f9689c816b407e6552a4bb1c5f5aafc6bd5551e9d4107",
+  "verified_input_token_ids_sha256": "ab629c34596ff250ed006a7ee7aff79646db503a4eef06c0930de1bca42e3de8",
+  "verified_constraint_sha256": "caf41a006c507ac0ac35d17561ca531ea1ea94cc5ecec368189c91c2e6c16a21",
+  "two_valid_paths": true,
+  "genuine_model_generate_calls": 1,
+  "branch": {
+    "new_token_position": 3,
+    "allowed_token_ids": [
+      927,
+      37488
+    ],
+    "selected_token_id": 37488,
+    "selected_status": "answered"
+  },
+  "preservation": {
+    "previous_paths_checked": 149,
+    "changed_or_missing": []
+  },
+  "checks": [
+    {
+      "command": "PYTHONPATH=. .venv/bin/python -B local-data/f3-run/test-constraint-v1.py",
+      "exit_code": 0,
+      "tests": 16,
+      "skipped": 1,
+      "note": "Torch processor test executed separately in Linux image"
+    },
+    {
+      "command": "offline Docker negative tests in image 139a1f015734",
+      "exit_code": 0,
+      "tests": 16,
+      "skipped": 0
+    },
+    {
+      "command": ".venv/bin/python -m ruff check .",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "exit_code": 0,
+      "tests_passed": 389,
+      "warnings": [
+        "Existing Starlette TestClient HTTPX deprecation"
+      ]
+    },
+    {
+      "command": "docker compose config --quiet",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "failed_preflight_attempts": [
+    "Initial container negative-test fixture path error; corrected before model execution.",
+    "Initial host experiment startup failed on missing image tag, before retrieval/generation; preserved constraint-v1-single-report.json. Confirmed existing digest used for the only generation call."
+  ],
+  "not_run": [
+    "scripts/ci-local.sh full build/API smoke: build may acquire dependencies; no-download restriction preserved.",
+    "Other generation regressions, fresh acceptance, broad F3 acceptance"
+  ],
+  "external_actions": []
+}

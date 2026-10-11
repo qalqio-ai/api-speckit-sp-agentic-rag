@@ -1,0 +1,447 @@
+{
+  "project": "f3-f72ba0a78f4641cbbdba3bbb3ba3dde9",
+  "command_mode": "calibration",
+  "acceptance_claimed": false,
+  "bundle_sha256": "3d4ea372ccb10638bb5d500630edf14cd8788c721a5422e716fc4896e0932d44",
+  "runtime_image_id": "sha256:f1dc063ca46a05ccce548121c1f530eb1d7ce2edc87dc27db1f32d3ba2cdf00a",
+  "qdrant_image_id": "sha256:dd57172b0bbebb29b0a96a37c1f378a317449730c36cdfe68feabe36e740a92b",
+  "host_startup_to_verified_stack_ms": 968.2739230047446,
+  "kind": "live_calibration_measurement",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "dev-receipt-1",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.58428997,
+      "best_expected_source_score": 0.58428997,
+      "best_expected_source_rank": 1,
+      "question": "Must a customer bring a receipt when returning an unused item?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.58428997,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.032140777,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8842.113331999997,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-receipt-2",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.57489765,
+      "best_expected_source_score": 0.57489765,
+      "best_expected_source_rank": 1,
+      "question": "Which purchase document is required to return unused goods?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.57489765,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.08385706,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8664.952581000023,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-returns",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.61648154,
+      "best_expected_source_score": 0.61648154,
+      "best_expected_source_rank": 1,
+      "question": "What is the allowed period for bringing back an unused product?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.61648154,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.2624506,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8830.064144999995,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-hours",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.78232664,
+      "best_expected_source_score": 0.78232664,
+      "best_expected_source_rank": 1,
+      "question": "On which weekdays and at what times is the shop open?",
+      "candidates": [
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 1,
+          "score": 0.78232664,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 2,
+          "score": 0.18874942,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8148.09015000003,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-warranty",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.28127697,
+      "best_expected_source_score": null,
+      "best_expected_source_rank": null,
+      "question": "How many years of warranty apply to a microwave?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.28127697,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.027507532,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8562.846252999974,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-travel",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.22069639,
+      "best_expected_source_score": null,
+      "best_expected_source_rank": null,
+      "question": "Can I book a flight ticket at this shop?",
+      "candidates": [
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 1,
+          "score": 0.22069639,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 2,
+          "score": 0.12624285,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8802.962959000013,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "known-receipt-regression",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.4537802,
+      "best_expected_source_score": 0.4537802,
+      "best_expected_source_rank": 1,
+      "question": "What proof should accompany a return?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.4537802,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": -0.068036094,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8600.008194999988,
+      "retrieval_searches": 1
+    }
+  ],
+  "proposed_threshold": 0.42808731,
+  "known_regression": {
+    "case_id": "known-receipt-regression",
+    "candidate_count": 2,
+    "maximum_candidate_score": 0.4537802,
+    "best_expected_source_score": 0.4537802,
+    "best_expected_source_rank": 1,
+    "question": "What proof should accompany a return?",
+    "candidates": [
+      {
+        "source_id": "returns",
+        "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+        "rank": 1,
+        "score": 0.4537802,
+        "passes_original_threshold": false,
+        "scope_filter_pass": true,
+        "current_id_filter_pass": true
+      },
+      {
+        "source_id": "hours",
+        "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+        "rank": 2,
+        "score": -0.068036094,
+        "passes_original_threshold": false,
+        "scope_filter_pass": true,
+        "current_id_filter_pass": true
+      }
+    ],
+    "elapsed_ms": 8600.008194999988,
+    "retrieval_searches": 1
+  },
+  "calibration_cases": [
+    {
+      "case_id": "dev-receipt-1",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.58428997,
+      "best_expected_source_score": 0.58428997,
+      "best_expected_source_rank": 1,
+      "question": "Must a customer bring a receipt when returning an unused item?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.58428997,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.032140777,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8842.113331999997,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-receipt-2",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.57489765,
+      "best_expected_source_score": 0.57489765,
+      "best_expected_source_rank": 1,
+      "question": "Which purchase document is required to return unused goods?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.57489765,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.08385706,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8664.952581000023,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-returns",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.61648154,
+      "best_expected_source_score": 0.61648154,
+      "best_expected_source_rank": 1,
+      "question": "What is the allowed period for bringing back an unused product?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.61648154,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.2624506,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8830.064144999995,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-hours",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.78232664,
+      "best_expected_source_score": 0.78232664,
+      "best_expected_source_rank": 1,
+      "question": "On which weekdays and at what times is the shop open?",
+      "candidates": [
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 1,
+          "score": 0.78232664,
+          "passes_original_threshold": true,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 2,
+          "score": 0.18874942,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8148.09015000003,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-warranty",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.28127697,
+      "best_expected_source_score": null,
+      "best_expected_source_rank": null,
+      "question": "How many years of warranty apply to a microwave?",
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 1,
+          "score": 0.28127697,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 2,
+          "score": 0.027507532,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8562.846252999974,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "dev-travel",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.22069639,
+      "best_expected_source_score": null,
+      "best_expected_source_rank": null,
+      "question": "Can I book a flight ticket at this shop?",
+      "candidates": [
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "rank": 1,
+          "score": 0.22069639,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "rank": 2,
+          "score": 0.12624285,
+          "passes_original_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "elapsed_ms": 8802.962959000013,
+      "retrieval_searches": 1
+    }
+  ],
+  "threshold_applied": false,
+  "elapsed_ms": 88987.90091400003,
+  "peak_bytes": 783900672,
+  "collection_absent": true,
+  "runner_exit_code": 0,
+  "qdrant_peak_bytes": 390512640,
+  "elapsed_host_ms": 99148.34583000629,
+  "ownership_consistent": true,
+  "stack_absent": true,
+  "cleanup_ms": 598.1165669800248,
+  "exit_code": 0
+}

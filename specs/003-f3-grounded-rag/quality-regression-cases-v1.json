@@ -1,0 +1,41 @@
+{
+  "kind": "exposed_live_quality_regressions",
+  "status": "known_failing_regressions_not_untouched_acceptance",
+  "original_frozen_configuration_sha256": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+  "original_generation_cases_sha256": "ceca580af0f5abc3a75bcd0f4d1b57d1180d1507c88db48d14bc780fa74f9924",
+  "cases": {
+    "generation": [
+      {
+        "case_id": "edm-answer-1",
+        "use_case_id": "f2-synthetic",
+        "question": "What is the return policy?",
+        "expected_status": "answered",
+        "expected_reason": null,
+        "expected_claim_ids": [
+          "returns"
+        ],
+        "acceptable_source_ids": [
+          "returns"
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "case_id": "held-proof",
+        "split": "held_out",
+        "use_case_id": "f2-synthetic",
+        "question": "What proof should accompany a return?",
+        "expected": {
+          "status": "matched",
+          "source_ids": [
+            "returns"
+          ]
+        }
+      }
+    ]
+  },
+  "expected_results_unchanged": true,
+  "generation_observed_failure": "output_too_large",
+  "retrieval_observed_failure": "no_match",
+  "model_or_threshold_fix_applied": false
+}

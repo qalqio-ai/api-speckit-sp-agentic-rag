@@ -1,0 +1,1 @@
+{"command":"docker container ls --all --filter ancestor=sha256:f1dc063ca46a05ccce548121c1f530eb1d7ce2edc87dc27db1f32d3ba2cdf00a --format {{.ID}}","exit_code":0,"stdout":"","candidate_containers_absent":true}

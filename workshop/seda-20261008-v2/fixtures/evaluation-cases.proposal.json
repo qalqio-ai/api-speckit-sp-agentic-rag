@@ -1,0 +1,74 @@
+{
+  "schema_version": 3,
+  "kind": "answer_evaluation_cases",
+  "case_set_id": "edm-f3-20261004-v1",
+  "manifest_sha256": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+  "catalog_sha256": "0e7b6a9beb982cf7136eb203cd4359beb396bb28c8d3d9b9f2f535becefc6f58",
+  "generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "retrieval_configuration_fingerprint": "e91a67aac7fe729f79512bc5ce2cdcc5aa8f38d172a042af9cfa2894448af04e",
+  "review_attribution": {
+    "owner": "EDM",
+    "reviewer": "EDM",
+    "decision_reference": "User in this session: Yes i\u2019m EDM or emcbee@alphaqidz.com and is the owner/reviewer. I approved all. (2026-10-04)",
+    "approved_at": "2026-10-04T02:37:38.333791Z"
+  },
+  "cases": [
+    {
+      "case_id": "edm-answer-1",
+      "use_case_id": "f2-synthetic",
+      "question": "What is the return policy?",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "edm-answer-2",
+      "use_case_id": "f2-synthetic",
+      "question": "How long do I have to return an unused item?",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "edm-answer-3",
+      "use_case_id": "f2-synthetic",
+      "question": "Is a receipt required for a return?",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "edm-answer-4",
+      "use_case_id": "f2-synthetic",
+      "question": "What is the shipping policy?",
+      "expected_status": "insufficient_evidence",
+      "expected_reason": "no_evidence",
+      "expected_claim_ids": [],
+      "acceptable_source_ids": []
+    },
+    {
+      "case_id": "edm-answer-5",
+      "use_case_id": "f2-synthetic",
+      "question": "Can used items be returned?",
+      "expected_status": "insufficient_evidence",
+      "expected_reason": "unsupported_question",
+      "expected_claim_ids": [],
+      "acceptable_source_ids": []
+    }
+  ]
+}

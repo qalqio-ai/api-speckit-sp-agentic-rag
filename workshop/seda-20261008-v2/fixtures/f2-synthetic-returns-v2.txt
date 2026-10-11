@@ -1,0 +1,1 @@
+Synthetic returns: unused items require a receipt.

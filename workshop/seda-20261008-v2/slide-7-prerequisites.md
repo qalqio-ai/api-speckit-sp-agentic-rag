@@ -1,0 +1,27 @@
+# Slide 7 prerequisite table — prepared text only
+
+No slides were edited. Values below are measurements/pins from this repository and machine, not universal minimums.
+
+| Item | Tested / measured | Preparation or operating requirement |
+|---|---|---|
+| Host OS/CPU | macOS 13.2.1 (22D68), x86_64; Intel Core i9-9980HK @2.40GHz; 64 GiB host RAM | Tested Intel Mac only. Apple Silicon/native arm64 and other target machines are untested. |
+| Container platform | Linux amd64, Python 3.12.15, glibc2.41; LinuxKit kernel6.10.14 | Run Linux x86_64 CPU images; do not imply arm64 compatibility from emulation availability. |
+| Docker | Desktop4.41.2; CLI/Engine28.1.1; Compose v2.36.0-desktop.1 | Docker running and socket available. Actual VM allocation:4,101,427,200bytes (~3.82GiB),16virtual CPUs. No settings were changed. |
+| Native checks | Python3.10.10; prepared `.venv` with pytest/Ruff/FastAPI/HTTPX | Use the existing environment. Native environment does not load the RAG model stack. |
+| Pinned RAG dependencies | Torch2.14.1+cpu, Transformers5.18.0, sentence-transformers6.1.0, qdrant-client1.19.1; Qdrant server1.19.1 | Existing pinned Linux image/requirements.f1.lock. No new packages or model substitution. |
+| Generation model | HuggingFaceTB/SmolLM2-360M-Instruct, `a10cc1512eabd3dde888204e902eca88bddb4951` | `local-data/f3-models/<revision>/`: config.json, generation_config.json, model.safetensors, special_tokens_map.json, tokenizer.json, tokenizer_config.json. Six hashes verified;725,784,865logicalbytes. |
+| Embedding model | sentence-transformers/all-MiniLM-L6-v2, `1110a243fdf4706b3f48f1d95db1a4f5529b4d41` | `local-data/f1-models/<revision>/` with approved `f1-model.json` and11hash-verified snapshot files.91,578,415logicalbytes; pooling/model/tokenizer/config files included. Separate purpose from generation. |
+| Model disk allocation | Embedding89,468KiB; generation708,788KiB (~780MiB combined allocated) | Actual `du` reading; no models are baked into the application image. Keep approved snapshots readable for read-only bind mounts. |
+| Image disk usage | Candidate logical size1,468,958,887bytes; Docker reported1.469GBshared +293.1kBunique for rc1; Qdrant197,967,748bytes (~198MBunique) | Shared image layers must not be double-counted. These are local Docker reported values; compressed transfer/archive size was not measured. Later image versions need their own record. |
+| Demo data | Original approved F3 fixtures48KiB; original run helpers192KiB. Final package/evidence size is recorded in the readiness receipt. | Plain synthetic sources only, with manifests/receipts/catalog/asset hashes. Approved v1/v2 and neighbor tuples remain unchanged. |
+| Measured memory | Original single constrained regression: runner2.88GiB, Qdrant0.38GiB. Fresh-v1 runner3,249,233,920bytes (~3.03GiB), Qdrant408,600,576bytes (~0.38GiB). | These are per-container peaks, not a simultaneously measured total. Single-model runs only on the tested VM; do not run model evaluations concurrently. Final rehearsal numbers supersede timing assumptions. |
+| Operating headroom | Hard caps remain runner8GiB +Qdrant1GiB, zero additional swap, four runner CPUs; Qdrant storage256MiB tmpfs and runner/tmp64MiB | 10GiB is an operating-capacity planning recommendation (9GiBcaps plus VM overhead), **not a measured minimum**. The tiny tested run worked with3.82GiBallocated, but that leaves little VM headroom and does not establish general capacity. No Docker settings changed. |
+| Preparation network | Existing assets/images are already present. A clean machine would need separately authorized access to exact pinned upstream model/package/image files. | Verify manifests/checksums/license/access before acquisition. Actual finalization rebuild reused pinned dependency layers and disabled build networking; no downloads. |
+| Demo network | Internal temporary Qdrant network only; API smoke binds a random127.0.0.1port | Offline model loading, no proxies/credentials/hosted inference. No internet access needed after the approved assets/images are prepared. |
+| Preflight | `python -m workshop.preflight` checks exact model/bundle hashes; actual runtime then verifies cgroups/tmpfs/read-only mounts and corpus readiness | Expected `local_assets_ready:true`; this does not mean a service is ready. `SEDA_READY` follows actual factory startup and approved ingestion. Fail closed on missing/mismatched assets. |
+| Presentation pace | Original supported query46s; fresh-v1 answers30.85–33.17s; cold corpus readiness49.73s | Allow60–90s startup and up to60s/query; narrate evidence/validation during waits. Clearly label retained playback as recorded evidence. |
+| Publication / target pull | Versioned local image only; no registry publication or target-machine pull was executed | A local tag is not remotely pullable. See release-handoff.md for conditional publication/pull instructions and local archive alternative. |
+
+Final guarded rehearsal:runner3,024,035,840bytes (~2.82GiB), Qdrant385,564,672bytes (~0.36GiB); corpus73.75s; supported38.55s/unsupported13.74s. Native dependencies:FastAPI0.142.2, Starlette1.7.0, HTTPX0.28.1, Uvicorn0.54.0, pytest9.1.1, Ruff0.16.10. Final full suite397passed/oneexistingdeprecation; Linux negative16/16. Full F3 acceptance remains failed5/6; these prerequisites do not imply acceptance.
+
+Final package allocation:workshop/seda-20261008396KiB; workshop/seda-20261008-v2528KiB (including retained evidence, measured before the last receipt append).

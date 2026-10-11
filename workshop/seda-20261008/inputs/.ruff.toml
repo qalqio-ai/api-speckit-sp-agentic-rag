@@ -1,0 +1,3 @@
+extend = "../../../pyproject.toml"
+# Byte-identical reviewed candidate snapshots; lint the new wrapper/session instead.
+exclude = ["constraint-v1-trie.py", "constraint-v1-worker.py", "test-constraint-v1.py"]

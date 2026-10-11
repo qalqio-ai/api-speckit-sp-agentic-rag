@@ -1,0 +1,18 @@
+{
+  "local_assets_ready": true,
+  "service_readiness_claimed": false,
+  "models": [
+    {
+      "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "verified_files": 6,
+      "logical_bytes": 725784865
+    },
+    {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "verified_files": 11,
+      "logical_bytes": 91578415
+    }
+  ]
+}

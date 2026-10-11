@@ -1,0 +1,14 @@
+{
+  "purpose": "f3_local_grounded_answers",
+  "manifest_sha256": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+  "catalog_sha256": "234709de4639d75b88711525bb56b501f2497cc959054fb1d1e3957af5b2b537",
+  "review_attribution": {
+    "owner": "EDM",
+    "reviewer": "EDM",
+    "decision_reference": "User 2026-10-07 authorized preparing/freezing/running fresh questions for SEDA with existing approved sources and models. Agent prepared and checked aliases against unchanged EDM-reviewed source/claim rules; no individual human wording review is asserted.",
+    "approved_at": "2026-10-07T01:00:47.159154+00:00"
+  },
+  "access_scope": "local_demo_operator",
+  "retention": "until_demo_end",
+  "deletion_scope": "owned_run_collection_and_stack"
+}

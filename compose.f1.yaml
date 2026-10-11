@@ -1,0 +1,39 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.1@sha256:12364fe851b9f17356fc88189fc06d1b521262e04659ec7345975b00c9246a10
+    pull_policy: never
+    tmpfs:
+      - /qdrant/storage:size=268435456
+    networks: [f1]
+  runner:
+    image: f1-ingestion:local
+    pull_policy: never
+    build:
+      context: .
+      dockerfile: Dockerfile.f1
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=67108864
+    stdin_open: true
+    networks: [f1]
+    environment:
+      HF_HUB_OFFLINE: '1'
+      TRANSFORMERS_OFFLINE: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+    volumes:
+      - type: bind
+        source: ${F1_MODEL_DIR:?Explicit reviewed model directory required}
+        target: /models
+        read_only: true
+      - type: bind
+        source: ${F1_MANIFEST:?Explicit approved manifest required}
+        target: /input/approval.json
+        read_only: true
+      - type: bind
+        source: ${F1_TMPFS_PROOF:?Explicit verified mount receipt required}
+        target: /input/tmpfs-proof.json
+        read_only: true
+networks:
+  f1:
+    internal: true

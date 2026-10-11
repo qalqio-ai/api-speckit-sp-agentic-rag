@@ -1,0 +1,53 @@
+{
+  "revision": "edm-f3-constrained-selection-v1-experiment",
+  "approval": "User 2026-10-07: Approved one isolated constrained-generation experiment on the known regression query, using the reviewed bounded token-trie proposal.",
+  "proposal_sha256": "bc4bc4e0cdf4e7ea7e467f38510d63be500dfb939ec098daf64fa8f9efcefd21",
+  "base_v3_configuration": {
+    "kind": "approved_single_variable_diagnostic",
+    "proposal_file_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+    "system_prompt_sha256": "39c6a894170f8211401eae00ca8cbdb85b752cb8ebd7c7f56bad6ebafe814247",
+    "revision": "edm-f3-prompt-schema-v3-candidate",
+    "decision_reference": "User approved creating v3 with exact rules text, actual supporting evidence chunk IDs and no invented/unsupported citations; one regression query, conditional remaining regressions, stop prompt iteration on failure.",
+    "case_ids_initial": [
+      "edm-answer-1"
+    ],
+    "conditional_followup": [
+      "edm-answer-2",
+      "edm-answer-3"
+    ],
+    "base_frozen_configuration_sha256": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+    "base_generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+    "retrieval_min_score": 0.45614706000000005,
+    "calibration_id": "EDM-f2-20261004-v1",
+    "changes": [
+      "system_message_v3_mapping_only"
+    ],
+    "unchanged_limits": {
+      "max_new_tokens": 384,
+      "max_generated_utf8_bytes": 16384,
+      "max_prompt_tokens": 2048,
+      "max_prompt_utf8_bytes": 65536,
+      "max_context_tokens": 8192,
+      "generation_deadline_seconds": 110,
+      "whole_request_seconds": 240
+    },
+    "is_acceptance": false,
+    "raw_capture": "approved synthetic completion <=16384 UTF8 bytes; local diagnostic report only",
+    "parent_experiment_configuration_fingerprint": "a833b8e47983fba6e827c68e595af6377034d92f25052d5ede097853d2385f0a",
+    "experiment_configuration_fingerprint": "44f41716f83fbcabdaa8a2885a3785769e1b25dbd124fe113b060dfac7867ad6"
+  },
+  "case_ids": [
+    "edm-answer-1"
+  ],
+  "mode": "constrained_selection_of_reviewed_claims",
+  "acceptance": false,
+  "choices_origin": "runtime retrieved evidence and independently checked reviewed catalog; evaluation expectations excluded",
+  "change": "generation-time prefix_allowed_tokens_fn only plus bounded diagnostics",
+  "helper_sha256": {
+    "constraint-v1-worker.py": "272095138b269b02dfa1c3ee7acaff21cc8aaa6f09afb4004fa91731fa0fe73b",
+    "constraint-v1-trie.py": "766da6d0c1c581820f6a8492ff82dcc236da3ae5f71f6af64772774565cf9528",
+    "constraint-v1-single.py": "a3e6c4396962568e845fca836aa068a6f7b9fd3e9e28196fdd1a0d453c548d3d",
+    "test-constraint-v1.py": "4e5248649d1e7c403840a4f91c29c84ba01bde0b261124ee0cde64a8a77f01f5"
+  },
+  "fingerprint": "34bca4bf33f64c49864a33cfd9fd9e7545a8a601accbc4625faf11bc77061ca8"
+}

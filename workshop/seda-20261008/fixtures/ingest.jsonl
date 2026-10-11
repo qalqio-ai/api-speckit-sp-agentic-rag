@@ -1,0 +1,3 @@
+{"op": "ingest", "use_case_id": "f2-synthetic", "source_id": "returns", "title": "Approved synthetic returns", "revision": "v1", "text": "Synthetic returns: unused items may be returned within 7 days with a receipt."}
+{"op": "ingest", "use_case_id": "f2-synthetic", "source_id": "hours", "title": "Approved synthetic hours", "revision": "v1", "text": "Synthetic opening hours: the shop opens Monday through Friday from 9 am to 5 pm."}
+{"op": "ingest", "use_case_id": "f2-neighbor", "source_id": "returns", "title": "Approved synthetic returns", "revision": "v1", "text": "Synthetic neighbor: unopened items may be returned within 3 days with an order number."}

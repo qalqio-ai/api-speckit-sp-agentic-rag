@@ -1,0 +1,44 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+________________________ test_changed_bundle_is_refused ________________________
+
+tmp_path = PosixPath('/private/var/folders/s3/1mv8jx3x3l7588jbss9c2m5m0000gp/T/pytest-of-edmcbee/pytest-85/test_changed_bundle_is_refused0')
+
+    def test_changed_bundle_is_refused(tmp_path):
+        (tmp_path/'frozen.json').write_text(json.dumps({'files':{'worker.py':'0'*64}}))
+        (tmp_path/'worker.py').write_text('different')
+>       with pytest.raises(ValueError,match='bundle_mismatch'):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_seda_workshop.py:11: Failed
+_________________ test_answer_pass_cannot_hide_failed_cleanup __________________
+
+    def test_answer_pass_cannot_hide_failed_cleanup():
+        report={'cases':[{'passed':True}],'collection_absent':True,'stack_absent':False}
+>       assert not result_passes(report)
+E       AssertionError: assert not True
+E        +  where True = result_passes({'cases': [{'passed': True}], 'collection_absent': True, 'stack_absent': False})
+
+tests/test_seda_workshop.py:17: AssertionError
+_____________________ test_empty_cases_are_not_acceptance ______________________
+
+    def test_empty_cases_are_not_acceptance():
+>       assert not result_passes({'cases':[],'collection_absent':True,'stack_absent':True})
+E       AssertionError: assert not True
+E        +  where True = result_passes({'cases': [], 'collection_absent': True, 'stack_absent': True})
+
+tests/test_seda_workshop.py:21: AssertionError
+___________________ test_explicit_failed_case_is_not_a_pass ____________________
+
+    def test_explicit_failed_case_is_not_a_pass():
+>       assert not result_passes({'cases':[{'passed':False}],'collection_absent':True,'stack_absent':True})
+E       AssertionError: assert not True
+E        +  where True = result_passes({'cases': [{'passed': False}], 'collection_absent': True, 'stack_absent': True})
+
+tests/test_seda_workshop.py:25: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_seda_workshop.py::test_changed_bundle_is_refused - Failed: ...
+FAILED tests/test_seda_workshop.py::test_answer_pass_cannot_hide_failed_cleanup
+FAILED tests/test_seda_workshop.py::test_empty_cases_are_not_acceptance - Ass...
+FAILED tests/test_seda_workshop.py::test_explicit_failed_case_is_not_a_pass
+4 failed in 0.12s

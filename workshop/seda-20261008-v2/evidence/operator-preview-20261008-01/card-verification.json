@@ -1,0 +1,50 @@
+[
+  {
+    "block": 1,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "block": 2,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "block": 3,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "block": 4,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "block": 5,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "block": 6,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "block": 7,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "block": 8,
+    "exit_code": 0,
+    "stderr": "bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8): No such file or directory\n"
+  },
+  {
+    "case_inspection": "edm-answer-1",
+    "exit_code": 0
+  },
+  {
+    "case_inspection": "edm-answer-4",
+    "exit_code": 0
+  }
+]

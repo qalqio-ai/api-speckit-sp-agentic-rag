@@ -5,7 +5,8 @@ A small FastAPI service that exposes stable API contracts across configured use 
 ## Project stages and governance
 
 Stage 1 is this reusable API. Stage 2 appends Agentic RAG in the same repository,
-preserving the API contracts; Stage 2 implementation has not been approved here.
+preserving the API contracts. F1 ingestion is approved and implemented as a separate
+local CLI; see its [run guide](specs/agentic-rag/f1-ingestion/quickstart.md).
 See the [project brief](docs/project-brief.md), [initial scope](specs/001-initial-scope/spec.md),
 [agent guidance](AGENTS.md), [roles](agents/roles.md), and [skills index](agents/skills-index.md).
 
@@ -19,7 +20,8 @@ templates support the next reviewed slice without copying upstream skills.
 
 Checks are local-only. [Docker Hub image release](docs/release.md) requires separate
 approval; no publication is claimed. License, rights holder and Stage 2 corpus
-approval remain undecided. [Reconciliation](docs/governance-reconciliation.md)
+permission for other corpora remain undecided. F1 uses the explicitly approved
+synthetic fixtures only. [Reconciliation](docs/governance-reconciliation.md)
 records dispositions and actual checks. No license grant is generated.
 
 ## Local setup
@@ -64,7 +66,8 @@ cache. `CI_LOCAL_PYTHON` can select a different Python executable.
 `GET /v1/use-cases/{use_case_id}/sources` reads static in-memory sample data in
 `app/sample_data.py`. IDs are exact and case-sensitive; source order and titles
 are preserved. Requests require no credentials and make no outbound calls.
-There is no database, LLM, vector database, or configuration-editing endpoint.
+R1 does not load an embedding model or vector database and has no
+configuration-editing endpoint.
 
 Configured use case — HTTP 200:
 
@@ -106,3 +109,49 @@ Starlette 1.7.0; pytest 9.1.1; HTTPX 0.28.1.
 
 The tested Starlette version emits a deprecation warning about TestClient's
 HTTPX integration. The tests pass; migrating the test client is outside R1.
+
+
+## F1: Local ingestion learning slice
+
+F1 accepts approved plain text, produces original-character chunks and local CPU
+embeddings, and maintains an inspectable temporary Qdrant index. It demonstrates
+stable IDs, shorter-revision replacement, exact scope isolation and verified clearing.
+F1 provides ingestion; retrieval and grounded answers are separate later features.
+
+The dedicated Linux runner uses hash-locked dependencies, a separately mounted
+immutable MiniLM snapshot, an internal Docker network and a verified 256 MiB tmpfs.
+Models and corpus are excluded from images; runtime downloads are disabled. Build
+and acquire assets only under specific operator authorization. The native Stage 1
+venv remains separate. Run instructions and actual evidence are in the
+[F1 quickstart](specs/agentic-rag/f1-ingestion/quickstart.md) and
+[validation record](specs/agentic-rag/f1-ingestion/validation.md).
+
+## F2: Scoped retrieval in progress
+
+The F2 core verifies the complete current ready scope, performs one exact
+search, validates every candidate and returns ranked evidence. The local workshop
+candidate has live scoped retrieval and calibration evidence, including 5/5 fresh
+F2 cases. Overall status remains PARTIAL because an additional supported F3
+phrasing failed retrieval before generation. See the
+[F2 guide](specs/002-f2-retrieval/quickstart.md) and
+[observed validation](specs/002-f2-retrieval/validation.md).
+
+## F3: Grounded answers in progress
+
+F3 implements a closed catalog of reviewed question aliases and complete claim
+renderings, with current-evidence support and citation checks. Supervised local
+execution and the guarded workshop launcher are implemented. The workshop model
+selects among reviewed supported claims and abstention; fresh F3 acceptance was
+5/6, so the candidate remains PARTIAL. Exposed-question rehearsals are regression
+demonstrations. Model assets and approval-bound runtime inputs are prepared
+separately and are required for live execution.
+See the [F3 guide](specs/003-f3-grounded-rag/quickstart.md),
+[validation record](specs/003-f3-grounded-rag/validation.md), and
+[remaining decisions](specs/003-f3-grounded-rag/approval-request.md).
+
+The current workshop checkpoint is `SEDA-20261008-rehearsed-partial-rc2`.
+Use its [operator command card](workshop/seda-20261008-v2/operator-command-card.md)
+and [readiness receipt](workshop/seda-20261008-v2/readiness-receipt.md).
+Generation-backend adapters and warm-inference optimization are follow-up work;
+no latency improvement or full F3 acceptance is claimed. F4 remains outside this
+checkpoint.

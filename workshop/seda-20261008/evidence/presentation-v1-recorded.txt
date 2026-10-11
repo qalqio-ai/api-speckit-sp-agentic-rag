@@ -1,0 +1,39 @@
+RECORDED LOCAL EVIDENCE — this command does not run a model or query.
+Mode: constrained selection of reviewed claims; no unrestricted generation.
+Artifact: workshop/seda-20261008/evidence/fresh-v1.json
+
+Case: fresh-return-1 status: answered
+Question: Tell me the policy for returning an unused item.
+Claim: Unused items may be returned within 7 days with a receipt.
+Supporting chunk IDs: 1565c342-63a0-5216-91fc-115058bfa678
+Evidence: Synthetic returns: unused items may be returned within 7 days with a receipt.
+Provenance: f2-synthetic returns v1 1565c342-63a0-5216-91fc-115058bfa678 50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d 0 77
+Total seconds: 31.55
+
+Case: fresh-return-2 status: answered
+Question: What conditions apply to returning unused items within seven days?
+Claim: Unused items may be returned within 7 days with a receipt.
+Supporting chunk IDs: 1565c342-63a0-5216-91fc-115058bfa678
+Evidence: Synthetic returns: unused items may be returned within 7 days with a receipt.
+Provenance: f2-synthetic returns v1 1565c342-63a0-5216-91fc-115058bfa678 50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d 0 77
+Total seconds: 30.85
+
+Case: fresh-return-3 status: answered
+Question: According to the returns policy, how soon should an unused item be returned?
+Claim: Unused items may be returned within 7 days with a receipt.
+Supporting chunk IDs: 1565c342-63a0-5216-91fc-115058bfa678
+Evidence: Synthetic returns: unused items may be returned within 7 days with a receipt.
+Provenance: f2-synthetic returns v1 1565c342-63a0-5216-91fc-115058bfa678 50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d 0 77
+Total seconds: 33.17
+
+Case: fresh-shipping status: insufficient_evidence
+Question: What are the international shipping charges for parcels?
+Abstention reason: no_evidence
+Total seconds: 9.86
+
+Case: fresh-used status: insufficient_evidence
+Question: May I return a used item?
+Abstention reason: unsupported_question
+Total seconds: 8.94
+
+Collection absent: True stack absent: True
