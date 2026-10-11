@@ -1,0 +1,30 @@
+{
+  "kind": "read_only_v2_output_contract_diagnosis",
+  "raw_is_from": "separate unchanged diagnostic replay; original raw output was discarded",
+  "raw_sha256": "b8a8dfaedf1f39a33cb789ba532f366133c7f4caa2309a6254718e11d3aa90f5",
+  "raw_bytes": 157,
+  "strict_json_valid": true,
+  "production_shape_error": "AnswerError: invalid_input",
+  "public_worker_error": "invalid_model_response",
+  "schema_errors": [
+    {
+      "instance_path": "/claims/0",
+      "schema_path": "/properties/claims/items/required",
+      "keyword": "required",
+      "message": "'chunk_ids' is a required property"
+    }
+  ],
+  "missing_fields": [
+    "claims[0].chunk_ids"
+  ],
+  "syntax_failure": false,
+  "wrong_types": false,
+  "extra_text": false,
+  "extra_properties": false,
+  "prompt_parser_structural_mismatch": false,
+  "actual_claim_text": "Synthetic returns: unused items may be returned within 7 days with a receipt.",
+  "reviewed_claim_text": "Unused items may be returned within 7 days with a receipt.",
+  "exact_claim_text_matches": false,
+  "grounding_validator_reached": false,
+  "proposed_correction_only": "Clarify prompt mapping: copy text verbatim from matching rules[].text and require chunk_ids from actual supporting evidence[].chunk_id. Keep parser, full grounding/citation validation and limits unchanged; test as a separately versioned hypothesis, never repair output."
+}

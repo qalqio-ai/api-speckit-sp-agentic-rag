@@ -1,0 +1,57 @@
+{
+  "status": "PARTIAL",
+  "actual_presentation_machine": "UNCONFIRMED",
+  "execution_host": "existing Intel Mac, macOS13.2.1/x86_64; Intel Core i9-9980HK",
+  "candidate_unchanged": true,
+  "historical_files_preserved": 232,
+  "original_ci": {
+    "command": [
+      "./scripts/ci-local.sh"
+    ],
+    "cwd": "/Users/edmcbee/Projects/api-speckit-sp-agentic-rag",
+    "exit_code": 0,
+    "elapsed_seconds": 23.649347152997507,
+    "started_utc": "2026-10-08T03:10:31.121707+00:00",
+    "completed_utc": "2026-10-08T03:10:54.771680+00:00",
+    "CI_LOCAL_PYTHON": "default .venv/bin/python; no override supplied",
+    "candidate_rebuild_claimed": false
+  },
+  "rehearsal_command": {
+    "command": [
+      ".venv/bin/python",
+      "-B",
+      "-m",
+      "workshop.launch",
+      "--output",
+      "workshop/seda-20261008-v2/evidence/operator-preview-20261008-01/rehearsal.json"
+    ],
+    "cwd": "/Users/edmcbee/Projects/api-speckit-sp-agentic-rag",
+    "exit_code": 0,
+    "elapsed_seconds": 98.62691644599545,
+    "started_utc": "2026-10-08T03:14:16.169750+00:00",
+    "completed_utc": "2026-10-08T03:15:54.799256+00:00",
+    "mode": "known regressions; not fresh acceptance"
+  },
+  "fresh_f3_acceptance_established": false,
+  "independent_absence": true,
+  "peak_bytes": 3090317312,
+  "qdrant_peak_bytes": 410132480,
+  "cases": [
+    {
+      "question": "What is the return policy?",
+      "status": "answered",
+      "passed": true,
+      "retrieval_ms": 8587.004257999979,
+      "generation_ms": 23874.405703999968,
+      "total_ms": 32463.528894999967
+    },
+    {
+      "question": "What is the shipping policy?",
+      "status": "insufficient_evidence",
+      "passed": true,
+      "retrieval_ms": 12016.258317999984,
+      "generation_ms": 0,
+      "total_ms": 12017.372955999974
+    }
+  ]
+}

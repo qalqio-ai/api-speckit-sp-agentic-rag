@@ -1,0 +1,40 @@
+{
+  "candidate": "SEDA-constrained-selection-rc1",
+  "files": {
+    "inputs/development-calibration-v2.json": "8046c6898336a81c7cfcb0349fd16149515fe1d87895594651472e95d8e34335",
+    "inputs/generation-assets.json": "e2c60542b3dd112ac71a649373aaef344e5872b71d5f857c64d7c94c4ca764e5",
+    "inputs/constraint-v1-worker.py": "272095138b269b02dfa1c3ee7acaff21cc8aaa6f09afb4004fa91731fa0fe73b",
+    "inputs/constraint-v1-trie.py": "766da6d0c1c581820f6a8492ff82dcc236da3ae5f71f6af64772774565cf9528",
+    "inputs/session.py": "05d1324154d18cdcb9e30fc6abb188d79acb21a142b04974f0f28546b45dff26",
+    "inputs/generation-prompt-v3-candidate.json": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+    "inputs/tmpfs-proof.json": "73d2faec03991362cdb4f1344c94e5b9515c46d43f0ff65dc1ee0a9c8436270c",
+    "inputs/test-constraint-v1.py": "4e5248649d1e7c403840a4f91c29c84ba01bde0b261124ee0cde64a8a77f01f5",
+    "inputs/.ruff.toml": "c2c272bcef62e349b6a4fb7b3001d5df9da3c6a551da1f00fb663483a8991609",
+    "inputs/regression-cases.json": "ceca580af0f5abc3a75bcd0f4d1b57d1180d1507c88db48d14bc780fa74f9924",
+    "inputs/calibration.py": "29e1109516f3f26d147d041970c174279fc41f46a5b77b3bb4836b271ac265cc",
+    "inputs/.ruff_cache/CACHEDIR.TAG": "5953156d7e0c564a427251316eaf26f8870e6483ae2197f916b630e4f93e31ae",
+    "inputs/.ruff_cache/.gitignore": "9e3a60f1e6ec4ae60215c11d54b171392745ec25e9dded433d5bd921363af316",
+    "inputs/.ruff_cache/0.16.10/14830870526400244832": "b4b9e2d187de51913330087f667c4c949f1642df8abb19ec69707925e67d677d",
+    "fixtures/answer-approval.json": "45101164569822156d289bf34376b18fa9b45acff08b909a6edfbf095f2297fa",
+    "fixtures/ingest.jsonl": "11510442da7793e3306ae4947abe11834730e43cbf0f47ba9da859123d0d0940",
+    "fixtures/grounding-catalog.json": "234709de4639d75b88711525bb56b501f2497cc959054fb1d1e3957af5b2b537",
+    "fixtures/approval.json": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+    "fixtures/f2-neighbor-returns-v1.txt": "17a36a6f7e0ca4f4d90a57dc56feb5bf151e654fd57101989df5b0fe42037f18",
+    "fixtures/evaluation-cases.json": "be35f359b0d15696e000d8c3206616969db584817fe150835f5fda86a1fa9058",
+    "fixtures/retrieval-approval.json": "76f2836e6565d2e4596b474af88f2fb62f414a330c3f3d64e018c49aa8ddc6da",
+    "fixtures/f2-synthetic-returns-v2.txt": "42e29fd89ba570415acadc4555e6249e8d00c0a511e982f8abfea0bdc31ac324",
+    "fixtures/f2-synthetic-returns-v1.txt": "50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d",
+    "fixtures/evaluation-cases.proposal.json": "ba6224c06beb4835cc63e75a88a8df0db620679a20d76a793801ed82ed0f5284",
+    "fixtures/retrieval-evaluation-cases.json": "616a8477e22c42d8d21ddc2e338021f367ce61c32452d9e175c96ea5ac5ecced",
+    "fixtures/f2-synthetic-hours-v1.txt": "f19298916273b5ad01a43fdaa740eba1c37596049e59059f6141df6b69baa03d",
+    "candidate-freeze.json": "7d9546d42b914826893ffcfad5bc1c339d3344b55af676ac498b0116012e39ad",
+    "fresh-acceptance-freeze.json": "3c6f39e23f5fe650ac9e4e87815273fa50c0533e82cd2d10f07d3225a1d0148c",
+    "lifecycle-freeze-v2.json": "854e2cc67f7afce7ba4ca7411befc8deaa7b4190c7f59c831c801a55abc7553d"
+  },
+  "host_code": {
+    "workshop/seda.py": "f6d7e6ba7f200ee2b8459500c41009cf40c4cee4acb7624fe2d8f51d38d220c5",
+    "workshop/build.py": "ebb11bf8b8a7f6d4d1707a00b477f716ffd0a16df7d79a224e77f9408dafce1a"
+  },
+  "image_build": "evidence/build.json",
+  "scope": "independent new aliases; approved source and reviewed claims unchanged; original threshold; no F4 until predecessor gate passes"
+}

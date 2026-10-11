@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-B",
+    "-m",
+    "workshop.launch",
+    "--output",
+    "workshop/seda-20261008-v2/evidence/operator-preview-20261008-01/rehearsal.json"
+  ],
+  "cwd": "/Users/edmcbee/Projects/api-speckit-sp-agentic-rag",
+  "exit_code": 0,
+  "elapsed_seconds": 98.62691644599545,
+  "started_utc": "2026-10-08T03:14:16.169750+00:00",
+  "completed_utc": "2026-10-08T03:15:54.799256+00:00",
+  "mode": "known regressions; not fresh acceptance"
+}

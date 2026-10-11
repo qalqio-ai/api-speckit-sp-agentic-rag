@@ -1,0 +1,26 @@
+# Deny by default; allow only application/build inputs. No corpus/model/secret context.
+**
+!app/
+!app/**
+!pyproject.toml
+!README.md
+!requirements.f1.lock
+!uv.lock
+!Dockerfile.f1
+!specs/
+!specs/agentic-rag/
+!specs/agentic-rag/f1-ingestion/
+!specs/agentic-rag/f1-ingestion/contracts/
+!specs/agentic-rag/f1-ingestion/contracts/serialization.schema.json
+!Dockerfile.f3
+!specs/002-f2-retrieval/
+!specs/002-f2-retrieval/contracts/
+!specs/002-f2-retrieval/contracts/serialization.schema.json
+!specs/003-f3-grounded-rag/
+!specs/003-f3-grounded-rag/contracts/
+!specs/003-f3-grounded-rag/contracts/serialization.schema.json
+**/__pycache__/
+**/*.pyc
+**/.env*
+**/*.key
+**/*.pem

@@ -1,0 +1,39 @@
+{
+  "version": "seda-lifecycle-v1",
+  "frozen_before_run": true,
+  "operations": [
+    {
+      "op": "retrieve",
+      "use_case_id": "f2-neighbor",
+      "question": "What is the return policy?",
+      "expected": "only actual neighbor evidence"
+    },
+    {
+      "op": "ingest",
+      "use_case_id": "f2-synthetic",
+      "source_id": "returns",
+      "revision": "v2",
+      "text_sha256": "42e29fd89ba570415acadc4555e6249e8d00c0a511e982f8abfea0bdc31ac324"
+    },
+    {
+      "op": "retrieve",
+      "use_case_id": "f2-synthetic",
+      "question": "What does the current returns document require?",
+      "expected": "current v2 evidence, no v1 ID"
+    },
+    {
+      "op": "answer",
+      "question": "Tell me the policy for returning an unused item.",
+      "expected": "catalog_mismatch with no claims/citations/generation after v2 replacement"
+    },
+    {
+      "op": "clear",
+      "expected": "complete"
+    },
+    {
+      "op": "answer",
+      "question": "What conditions apply to returning unused items within seven days?",
+      "expected": "no_evidence and zero generation"
+    }
+  ]
+}

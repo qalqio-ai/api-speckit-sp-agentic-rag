@@ -1,0 +1,20 @@
+{
+  "project": "f3-57b3970822864ed192c0f7ebfe8fba5d",
+  "acceptance_claimed": false,
+  "kind": "live_isolation_replacement_clear_measurement",
+  "mode": "local_live",
+  "cases": [],
+  "same_source_id_isolated": true,
+  "shorter_replacement_verified": true,
+  "obsolete_chunk_ids_absent": true,
+  "selected_scope_empty": true,
+  "neighbor_preserved": true,
+  "retrieval_searches": 0,
+  "generation_attempts": 0,
+  "elapsed_ms": 50327.419901,
+  "peak_bytes": 1164652544,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 413601792,
+  "stack_absent": true,
+  "exit_code": 0
+}

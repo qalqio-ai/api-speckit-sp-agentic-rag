@@ -1,0 +1,48 @@
+{
+  "kind": "source_free_constraint_runtime_probe",
+  "exit_code": 0,
+  "python": "3.12.15",
+  "platform": "linux",
+  "machine": "x86_64",
+  "glibc": "2.41",
+  "torch": "2.14.1+cpu",
+  "transformers": "5.18.0",
+  "image_short_id": "139a1f015734",
+  "network": "none",
+  "pull": "never",
+  "model_weights_loaded": false,
+  "generation_called": false,
+  "greedy_integration_source_sha256": "d0abfcef2ab6a633333c648cb01602ceedcfeef8fb1b6f79765c41f468a68a79",
+  "integration": "_get_logits_processor appends PrefixConstrainedLogitsProcessor(prefix_allowed_tokens_fn,generation_config.num_beams) when callback is supplied.",
+  "greedy_mask_test": {
+    "allowed": [
+      3,
+      5
+    ],
+    "finite": [
+      3,
+      5
+    ],
+    "selected": 5,
+    "illegal_high_scoring_tokens_masked": true
+  },
+  "empty_allowed_set_rejected": true,
+  "completion_path_estimates": [
+    {
+      "status": "answered",
+      "tokens_including_eos": 80,
+      "utf8_bytes": 190,
+      "roundtrip_exact": true
+    },
+    {
+      "status": "insufficient_evidence",
+      "tokens_including_eos": 23,
+      "utf8_bytes": 78,
+      "roundtrip_exact": true
+    }
+  ],
+  "vocabulary_size": 49152,
+  "float32_mask_bytes": 196608,
+  "probe_peak_bytes": 1469505536,
+  "limitations": "Tokenizer estimate used historical reviewed chunk UUID only; experiment must select IDs from its actual retrieval and recheck paths. Probe peak excludes weights and is not live acceptance memory. No whole-model constrained generation executed."
+}

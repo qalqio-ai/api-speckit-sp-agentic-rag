@@ -1,0 +1,41 @@
+ M .gitignore
+ M .specify/feature.json
+ M README.md
+ M pyproject.toml
+ M uv.lock
+?? .agents/
+?? .dockerignore
+?? .specify/.gitignore
+?? .specify/init-options.json
+?? .specify/integration.json
+?? .specify/integrations/
+?? .specify/memory/
+?? .specify/scripts/
+?? .specify/templates/
+?? .specify/workflows/
+?? Dockerfile.f1
+?? Dockerfile.f3
+?? app/answer/
+?? app/ingestion/
+?? app/retrieval/
+?? compose.f1.yaml
+?? compose.f3.yaml
+?? docs/Foundational_Multiuse_API_SpecKit_Superpowers_Runbook.md
+?? requirements.f1.lock
+?? scripts/f1-demo.sh
+?? scripts/f3-demo.sh
+?? specs/002-f2-retrieval/
+?? specs/003-f3-grounded-rag/
+?? specs/agentic-rag/
+?? tests/fixtures/
+?? tests/test_answer.py
+?? tests/test_answer_cli.py
+?? tests/test_answer_lifecycle.py
+?? tests/test_answer_runtime.py
+?? tests/test_answer_stack.py
+?? tests/test_answer_wrapper.py
+?? tests/test_ingestion.py
+?? tests/test_ingestion_cli.py
+?? tests/test_retrieval.py
+?? tests/test_retrieval_cli.py
+?? workshop/

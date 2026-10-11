@@ -1,0 +1,51 @@
+{
+  "project": "f3-97822d7d6176436d92e883003993d778",
+  "acceptance_claimed": false,
+  "kind": "live_calibration_measurement",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "cal-return",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.78080046,
+      "best_expected_source_score": 0.78080046,
+      "best_expected_source_rank": 1,
+      "elapsed_ms": 8259.299401,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "cal-hours",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.7199879,
+      "best_expected_source_score": 0.7199879,
+      "best_expected_source_rank": 1,
+      "elapsed_ms": 8228.982592000002,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "cal-shipping",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.06486817,
+      "best_expected_source_score": null,
+      "best_expected_source_rank": null,
+      "elapsed_ms": 8271.023786000007,
+      "retrieval_searches": 1
+    },
+    {
+      "case_id": "cal-insurance",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.19230622,
+      "best_expected_source_score": null,
+      "best_expected_source_rank": null,
+      "elapsed_ms": 8130.9941290000015,
+      "retrieval_searches": 1
+    }
+  ],
+  "proposed_threshold": 0.45614706000000005,
+  "elapsed_ms": 61186.749037999994,
+  "peak_bytes": 1164165120,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 415432704,
+  "stack_absent": true,
+  "exit_code": 0
+}

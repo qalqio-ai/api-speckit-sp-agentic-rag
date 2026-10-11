@@ -1,0 +1,11 @@
+{
+  "project": "f3-67dacbb384f04a589640d7418ee12ef4",
+  "acceptance_claimed": false,
+  "runner_exit": "1",
+  "safe_error_tail": [
+    "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/generation-diagnostic.json'"
+  ],
+  "failure": "calibration_runner_failed",
+  "stack_absent": true,
+  "exit_code": 1
+}

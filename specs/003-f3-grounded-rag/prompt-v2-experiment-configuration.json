@@ -1,0 +1,32 @@
+{
+  "kind": "approved_single_variable_diagnostic",
+  "proposal_file_sha256": "5c092694cc39e4fa3b187669bcadd7fd154d2cb0e25497e6cb383dfd41788d49",
+  "system_prompt_sha256": "c4aa4bb69891335828aa2188911460b9e84cd1c1205b3cb0ed3a8dedc0c873f9",
+  "revision": "edm-f3-prompt-schema-v2-proposal",
+  "decision_reference": "User in this session: Approved: test generation-prompt-v2-proposal.json on the single known generation regression query. If it succeeds, run the other exposed generation regressions.",
+  "case_ids_initial": [
+    "edm-answer-1"
+  ],
+  "conditional_followup": [
+    "edm-answer-2",
+    "edm-answer-3"
+  ],
+  "base_frozen_configuration_sha256": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+  "base_generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "retrieval_min_score": 0.45614706000000005,
+  "calibration_id": "EDM-f2-20261004-v1",
+  "changes": [
+    "system_message_only"
+  ],
+  "unchanged_limits": {
+    "max_new_tokens": 384,
+    "max_generated_utf8_bytes": 16384,
+    "max_prompt_tokens": 2048,
+    "max_prompt_utf8_bytes": 65536,
+    "max_context_tokens": 8192,
+    "generation_deadline_seconds": 110,
+    "whole_request_seconds": 240
+  },
+  "is_acceptance": false,
+  "experiment_configuration_fingerprint": "a833b8e47983fba6e827c68e595af6377034d92f25052d5ede097853d2385f0a"
+}

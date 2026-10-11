@@ -1,0 +1,56 @@
+[
+  {
+    "case_id": "dev-receipt-1",
+    "question": "Must a customer bring a receipt when returning an unused item?",
+    "expected": {
+      "status": "matched",
+      "source_ids": [
+        "returns"
+      ]
+    }
+  },
+  {
+    "case_id": "dev-receipt-2",
+    "question": "Which purchase document is required to return unused goods?",
+    "expected": {
+      "status": "matched",
+      "source_ids": [
+        "returns"
+      ]
+    }
+  },
+  {
+    "case_id": "dev-returns",
+    "question": "What is the allowed period for bringing back an unused product?",
+    "expected": {
+      "status": "matched",
+      "source_ids": [
+        "returns"
+      ]
+    }
+  },
+  {
+    "case_id": "dev-hours",
+    "question": "On which weekdays and at what times is the shop open?",
+    "expected": {
+      "status": "matched",
+      "source_ids": [
+        "hours"
+      ]
+    }
+  },
+  {
+    "case_id": "dev-warranty",
+    "question": "How many years of warranty apply to a microwave?",
+    "expected": {
+      "status": "no_match"
+    }
+  },
+  {
+    "case_id": "dev-travel",
+    "question": "Can I book a flight ticket at this shop?",
+    "expected": {
+      "status": "no_match"
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "mode": "local_live",
+  "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+  "generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "eos_ids": [
+    2
+  ],
+  "pad_id": 2,
+  "memory_limit_bytes": 8589934592,
+  "swap_limit_bytes": 0,
+  "cpu_quota": 400000,
+  "cpu_period": 100000,
+  "model_load_seconds": 15.928118759999998,
+  "weight_load_peak_bytes": 2920411136,
+  "parameters": 361821120,
+  "dtype": "torch.float32",
+  "generation_attempts": 0,
+  "scope": "approved read-only assets, offline network-none kernel/tokenizer and weight-load probes only",
+  "acceptance_claimed": false
+}

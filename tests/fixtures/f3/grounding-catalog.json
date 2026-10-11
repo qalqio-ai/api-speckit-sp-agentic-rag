@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "kind": "grounding_catalog",
+  "catalog_id": "edm-approved-returns-v1",
+  "manifest_sha256": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+  "review_attribution": {
+    "owner": "EDM",
+    "reviewer": "EDM",
+    "decision_reference": "User in this session: Yes i\u2019m EDM or emcbee@alphaqidz.com and is the owner/reviewer. I approved all. (2026-10-04)",
+    "approved_at": "2026-10-04T02:37:38.333791Z"
+  },
+  "source_rules": [
+    {
+      "use_case_id": "f2-synthetic",
+      "source_id": "returns",
+      "revision": "v1",
+      "content_sha256": "50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d",
+      "assessment": "full_source_reviewed"
+    },
+    {
+      "use_case_id": "f2-synthetic",
+      "source_id": "hours",
+      "revision": "v1",
+      "content_sha256": "f19298916273b5ad01a43fdaa740eba1c37596049e59059f6141df6b69baa03d",
+      "assessment": "full_source_reviewed"
+    },
+    {
+      "use_case_id": "f2-neighbor",
+      "source_id": "returns",
+      "revision": "v1",
+      "content_sha256": "17a36a6f7e0ca4f4d90a57dc56feb5bf151e654fd57101989df5b0fe42037f18",
+      "assessment": "full_source_reviewed"
+    }
+  ],
+  "claims": [
+    {
+      "use_case_id": "f2-synthetic",
+      "claim_id": "returns",
+      "text": "Unused items may be returned within 7 days with a receipt.",
+      "support_alternatives": [
+        [
+          {
+            "source_id": "returns",
+            "revision": "v1",
+            "content_sha256": "50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d",
+            "start": 0,
+            "end": 77,
+            "quote": "Synthetic returns: unused items may be returned within 7 days with a receipt."
+          }
+        ]
+      ],
+      "conflicting_claim_ids": []
+    }
+  ],
+  "questions": [
+    {
+      "use_case_id": "f2-synthetic",
+      "question": "What is the return policy?",
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "insufficient_reason": null
+    },
+    {
+      "use_case_id": "f2-synthetic",
+      "question": "How long do I have to return an unused item?",
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "insufficient_reason": null
+    },
+    {
+      "use_case_id": "f2-synthetic",
+      "question": "Is a receipt required for a return?",
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "insufficient_reason": null
+    },
+    {
+      "use_case_id": "f2-synthetic",
+      "question": "What is the shipping policy?",
+      "expected_claim_ids": [],
+      "insufficient_reason": "unsupported_question"
+    },
+    {
+      "use_case_id": "f2-synthetic",
+      "question": "Can used items be returned?",
+      "expected_claim_ids": [],
+      "insufficient_reason": "unsupported_question"
+    }
+  ]
+}

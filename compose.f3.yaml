@@ -1,0 +1,36 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.1@sha256:12364fe851b9f17356fc88189fc06d1b521262e04659ec7345975b00c9246a10
+    pull_policy: never
+    mem_limit: 1073741824
+    memswap_limit: 1073741824
+    tmpfs: [/qdrant/storage:size=268435456]
+    networks: [f3]
+  runner:
+    image: f3-grounded-rag:local
+    pull_policy: never
+    build: {context: ., dockerfile: Dockerfile.f3}
+    init: true
+    read_only: true
+    mem_limit: 8589934592
+    memswap_limit: 8589934592
+    cpus: 4
+    tmpfs: [/tmp:size=67108864]
+    stdin_open: true
+    networks: [f3]
+    environment:
+      HF_HUB_OFFLINE: '1'
+      TRANSFORMERS_OFFLINE: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+    volumes:
+      - {type: bind, source: '${F3_EMBEDDING_DIR:?Explicit approved embedding snapshot required}', target: /embedding, read_only: true}
+      - {type: bind, source: '${F3_GENERATION_DIR:?Explicit approved generation snapshot required}', target: /generation, read_only: true}
+      - {type: bind, source: '${F3_MANIFEST:?Explicit approved manifest required}', target: /input/manifest.json, read_only: true}
+      - {type: bind, source: '${F3_RETRIEVAL_APPROVAL:?Explicit approved F2 receipt required}', target: /input/retrieval.json, read_only: true}
+      - {type: bind, source: '${F3_ANSWER_APPROVAL:?Explicit approved F3 receipt required}', target: /input/answer.json, read_only: true}
+      - {type: bind, source: '${F3_CATALOG:?Exact reviewed catalog required}', target: /input/catalog.json, read_only: true}
+      - {type: bind, source: '${F3_ASSETS:?Exact reviewed asset hashes required}', target: /input/assets.json, read_only: true}
+      - {type: bind, source: '${F3_TMPFS_PROOF:?Verified owned mount receipt required}', target: /input/tmpfs-proof.json, read_only: true}
+networks:
+  f3:
+    internal: true

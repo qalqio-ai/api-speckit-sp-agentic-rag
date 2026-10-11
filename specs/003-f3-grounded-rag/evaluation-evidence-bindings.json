@@ -1,0 +1,13 @@
+{
+  "kind": "observed_evaluation_evidence",
+  "retrieval_configuration_fingerprint": "e91a67aac7fe729f79512bc5ce2cdcc5aa8f38d172a042af9cfa2894448af04e",
+  "generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "case_file_sha256": "ceca580af0f5abc3a75bcd0f4d1b57d1180d1507c88db48d14bc780fa74f9924",
+  "artifacts_sha256": {
+    "evaluation-freeze.json": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+    "heldout-retrieval-report.json": "806178ba246e7847c6115aa419c7dd861ea92fba09ecd1f8c91bf3f66327610b",
+    "f3-generation-report.json": "1f52baa0f04d210336c5d5d92b4ad9c4703d62f8874a4b4ba2bd02028238d875",
+    "f3-wrapper-report.json": "563eb65949ba01376e6a457d4e8bd5aa3ef276de87de1f86123c6fb7bacea4ef"
+  },
+  "acceptance_passed": false
+}

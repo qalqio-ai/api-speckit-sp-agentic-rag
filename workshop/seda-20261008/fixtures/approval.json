@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "owner": "EDM",
+  "reviewer": "EDM",
+  "decision_reference": "User in this session: Yes i\u2019m EDM or emcbee@alphaqidz.com and is the owner/reviewer. I approved all. (2026-10-04)",
+  "approved_at": "2026-10-04T02:37:38.333791Z",
+  "classification": "synthetic, non-sensitive",
+  "access_scope": "local_demo_operator",
+  "redistribution_scope": "local repository/demo only; no external redistribution or license grant",
+  "retention": "until_demo_end",
+  "deletion_scope": "owned_run_collection_and_stack",
+  "allowed_sources": [
+    {
+      "use_case_id": "f2-synthetic",
+      "source_id": "returns",
+      "revision": "v1",
+      "content_sha256": "50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d"
+    },
+    {
+      "use_case_id": "f2-synthetic",
+      "source_id": "hours",
+      "revision": "v1",
+      "content_sha256": "f19298916273b5ad01a43fdaa740eba1c37596049e59059f6141df6b69baa03d"
+    },
+    {
+      "use_case_id": "f2-neighbor",
+      "source_id": "returns",
+      "revision": "v1",
+      "content_sha256": "17a36a6f7e0ca4f4d90a57dc56feb5bf151e654fd57101989df5b0fe42037f18"
+    },
+    {
+      "use_case_id": "f2-synthetic",
+      "source_id": "returns",
+      "revision": "v2",
+      "content_sha256": "42e29fd89ba570415acadc4555e6249e8d00c0a511e982f8abfea0bdc31ac324"
+    }
+  ]
+}

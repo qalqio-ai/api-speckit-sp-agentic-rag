@@ -1,0 +1,87 @@
+{
+  "checkpoint": "SEDA-F0-F3-constrained-v1-fallback",
+  "created_at": "2026-10-07",
+  "original_evaluation_freeze_sha256": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+  "successful_experiment_sha256": "d92ba27714179d56bfa3174562f4651bad955b38cf620756e90dc07a9178a614",
+  "candidate_configuration": {
+    "revision": "edm-f3-constrained-selection-v1-experiment",
+    "approval": "User 2026-10-07: Approved one isolated constrained-generation experiment on the known regression query, using the reviewed bounded token-trie proposal.",
+    "proposal_sha256": "bc4bc4e0cdf4e7ea7e467f38510d63be500dfb939ec098daf64fa8f9efcefd21",
+    "base_v3_configuration": {
+      "kind": "approved_single_variable_diagnostic",
+      "proposal_file_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+      "system_prompt_sha256": "39c6a894170f8211401eae00ca8cbdb85b752cb8ebd7c7f56bad6ebafe814247",
+      "revision": "edm-f3-prompt-schema-v3-candidate",
+      "decision_reference": "User approved creating v3 with exact rules text, actual supporting evidence chunk IDs and no invented/unsupported citations; one regression query, conditional remaining regressions, stop prompt iteration on failure.",
+      "case_ids_initial": [
+        "edm-answer-1"
+      ],
+      "conditional_followup": [
+        "edm-answer-2",
+        "edm-answer-3"
+      ],
+      "base_frozen_configuration_sha256": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+      "base_generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+      "retrieval_min_score": 0.45614706000000005,
+      "calibration_id": "EDM-f2-20261004-v1",
+      "changes": [
+        "system_message_v3_mapping_only"
+      ],
+      "unchanged_limits": {
+        "max_new_tokens": 384,
+        "max_generated_utf8_bytes": 16384,
+        "max_prompt_tokens": 2048,
+        "max_prompt_utf8_bytes": 65536,
+        "max_context_tokens": 8192,
+        "generation_deadline_seconds": 110,
+        "whole_request_seconds": 240
+      },
+      "is_acceptance": false,
+      "raw_capture": "approved synthetic completion <=16384 UTF8 bytes; local diagnostic report only",
+      "parent_experiment_configuration_fingerprint": "a833b8e47983fba6e827c68e595af6377034d92f25052d5ede097853d2385f0a",
+      "experiment_configuration_fingerprint": "44f41716f83fbcabdaa8a2885a3785769e1b25dbd124fe113b060dfac7867ad6"
+    },
+    "case_ids": [
+      "edm-answer-1"
+    ],
+    "mode": "constrained_selection_of_reviewed_claims",
+    "acceptance": false,
+    "choices_origin": "runtime retrieved evidence and independently checked reviewed catalog; evaluation expectations excluded",
+    "change": "generation-time prefix_allowed_tokens_fn only plus bounded diagnostics",
+    "helper_sha256": {
+      "constraint-v1-worker.py": "272095138b269b02dfa1c3ee7acaff21cc8aaa6f09afb4004fa91731fa0fe73b",
+      "constraint-v1-trie.py": "766da6d0c1c581820f6a8492ff82dcc236da3ae5f71f6af64772774565cf9528",
+      "constraint-v1-single.py": "a3e6c4396962568e845fca836aa068a6f7b9fd3e9e28196fdd1a0d453c548d3d",
+      "test-constraint-v1.py": "4e5248649d1e7c403840a4f91c29c84ba01bde0b261124ee0cde64a8a77f01f5"
+    },
+    "fingerprint": "34bca4bf33f64c49864a33cfd9fd9e7545a8a601accbc4625faf11bc77061ca8"
+  },
+  "retained_inputs": {
+    "generation-assets.json": "e2c60542b3dd112ac71a649373aaef344e5872b71d5f857c64d7c94c4ca764e5",
+    "constraint-v1-worker.py": "272095138b269b02dfa1c3ee7acaff21cc8aaa6f09afb4004fa91731fa0fe73b",
+    "constraint-v1-trie.py": "766da6d0c1c581820f6a8492ff82dcc236da3ae5f71f6af64772774565cf9528",
+    "generation-prompt-v3-candidate.json": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+    "tmpfs-proof.json": "73d2faec03991362cdb4f1344c94e5b9515c46d43f0ff65dc1ee0a9c8436270c",
+    "test-constraint-v1.py": "4e5248649d1e7c403840a4f91c29c84ba01bde0b261124ee0cde64a8a77f01f5"
+  },
+  "runtime_image": "sha256:139a1f015734889f0bef40f66a4db65a1addc1a3dc5dc41f6bc82fe9d936757f",
+  "generation_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "threshold": 0.45614706000000005,
+  "calibration_id": "EDM-f2-20261004-v1",
+  "fresh_acceptance_established": false,
+  "source_files": {
+    "tests/fixtures/f3/answer-approval.json": "064b06d493a6cef5546f01e22b5832c718a48cee8b8c5d832c74b7487284ad8a",
+    "tests/fixtures/f3/ingest.jsonl": "11510442da7793e3306ae4947abe11834730e43cbf0f47ba9da859123d0d0940",
+    "tests/fixtures/f3/grounding-catalog.json": "0e7b6a9beb982cf7136eb203cd4359beb396bb28c8d3d9b9f2f535becefc6f58",
+    "tests/fixtures/f3/approval.json": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+    "tests/fixtures/f3/f2-neighbor-returns-v1.txt": "17a36a6f7e0ca4f4d90a57dc56feb5bf151e654fd57101989df5b0fe42037f18",
+    "tests/fixtures/f3/evaluation-cases.json": "ceca580af0f5abc3a75bcd0f4d1b57d1180d1507c88db48d14bc780fa74f9924",
+    "tests/fixtures/f3/retrieval-approval.json": "76f2836e6565d2e4596b474af88f2fb62f414a330c3f3d64e018c49aa8ddc6da",
+    "tests/fixtures/f3/f2-synthetic-returns-v2.txt": "42e29fd89ba570415acadc4555e6249e8d00c0a511e982f8abfea0bdc31ac324",
+    "tests/fixtures/f3/f2-synthetic-returns-v1.txt": "50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d",
+    "tests/fixtures/f3/evaluation-cases.proposal.json": "ba6224c06beb4835cc63e75a88a8df0db620679a20d76a793801ed82ed0f5284",
+    "tests/fixtures/f3/retrieval-evaluation-cases.json": "616a8477e22c42d8d21ddc2e338021f367ce61c32452d9e175c96ea5ac5ecced",
+    "tests/fixtures/f3/f2-synthetic-hours-v1.txt": "f19298916273b5ad01a43fdaa740eba1c37596049e59059f6141df6b69baa03d"
+  }
+}

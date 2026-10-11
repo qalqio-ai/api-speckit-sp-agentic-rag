@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "held2-deadline",
+    "use_case_id": "f2-synthetic",
+    "question": "For how long may a customer keep an unused product before returning it?",
+    "expected_status": "matched",
+    "source_id": "returns"
+  },
+  {
+    "case_id": "held2-receipt",
+    "use_case_id": "f2-synthetic",
+    "question": "Which document must be shown for a return of unused merchandise?",
+    "expected_status": "matched",
+    "source_id": "returns"
+  },
+  {
+    "case_id": "held2-hours",
+    "use_case_id": "f2-synthetic",
+    "question": "At what time does the shop begin trading on weekdays?",
+    "expected_status": "matched",
+    "source_id": "hours"
+  },
+  {
+    "case_id": "held2-hotel",
+    "use_case_id": "f2-synthetic",
+    "question": "Can the shop reserve a hotel room for me?",
+    "expected_status": "no_match",
+    "source_id": null
+  },
+  {
+    "case_id": "held2-overseas",
+    "use_case_id": "f2-synthetic",
+    "question": "Does the store provide overseas shipping quotes?",
+    "expected_status": "no_match",
+    "source_id": null
+  }
+]

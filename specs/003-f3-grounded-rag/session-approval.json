@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-04T02:37:38.333791Z",
+  "owner": "EDM",
+  "reviewer": "EDM",
+  "contact": "emcbee@alphaqidz.com",
+  "decision_reference": "User in this session: Yes i\u2019m EDM or emcbee@alphaqidz.com and is the owner/reviewer. I approved all. (2026-10-04)",
+  "generation_proposal_sha256": "66a006c9c799645a9d838dc035a0fca6656bcfa19efe3ea57923ba4fe36a44c3",
+  "approved_scope": [
+    "four exact F2 workshop source tuples for local F2/F3",
+    "displayed access/redistribution/deletion rules",
+    "MiniLM F2 embedding reuse",
+    "six-file pinned SmolLM2 acquisition and checksums",
+    "existing local build/run and safe metadata/claim checks"
+  ],
+  "preserved_restrictions": [
+    "no commits or publication",
+    "no Docker settings changes",
+    "no persistent end-user memory",
+    "no broader sources or hosted inference"
+  ],
+  "does_not_assert": "unpresented new catalogs/cases, numeric calibration values, model quality or live acceptance"
+}

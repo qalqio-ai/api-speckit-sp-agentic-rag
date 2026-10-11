@@ -1,0 +1,71 @@
+{
+  "project": "f3-4a5c76ead2654ac286ada446c5b5ce82",
+  "acceptance_claimed": false,
+  "kind": "single_query_generation_diagnostics",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "edm-answer-1",
+      "status": "failed",
+      "reason": null,
+      "error": {
+        "code": "output_too_large",
+        "message": "output_too_large",
+        "cause_code": null
+      },
+      "passed": false,
+      "citation_correct": null,
+      "grounding_correct": null,
+      "claim_count": 0,
+      "citation_count": 0,
+      "retrieval_searches": 1,
+      "generation_attempts": 1,
+      "retrieval_ms": 20424.136279000093,
+      "generation_ms": 68191.81620199993,
+      "total_ms": 88626.46435700003,
+      "evidence_count": 1,
+      "all_evidence_isolated": true
+    }
+  ],
+  "measurement": "instrumentation measures unchanged genuine calls; no scripted model output, retry or repair",
+  "retrieval_configuration_fingerprint": "e91a67aac7fe729f79512bc5ce2cdcc5aa8f38d172a042af9cfa2894448af04e",
+  "generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "all_cases_pass": false,
+  "generation_diagnostics": {
+    "stdout_bytes": 0,
+    "stderr_bytes": 803,
+    "load_ms": 13825.582580999935,
+    "tokenizer_eos_id": 2,
+    "effective_eos_ids": [
+      2
+    ],
+    "model_generation_eos": 2,
+    "prompt_bytes": 1340,
+    "prompt_tokens": 541,
+    "settings": {
+      "max_new_tokens": 384,
+      "do_sample": false,
+      "num_beams": 1,
+      "eos_token_id": [
+        2
+      ],
+      "pad_token_id": 2
+    },
+    "generate_ms": 54014.79736699991,
+    "new_tokens": 384,
+    "output_tokens": 925,
+    "last_token_id": 1002,
+    "eos_positions": [],
+    "tokenizer_eos_positions": [],
+    "generated_text_bytes": 787,
+    "stopping_reason": "max_new_tokens",
+    "worker_response_bytes": 45,
+    "worker_response_kind": "error",
+    "worker_error": "output_too_large"
+  },
+  "peak_bytes": 3117436928,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 383930368,
+  "stack_absent": true,
+  "exit_code": 0
+}

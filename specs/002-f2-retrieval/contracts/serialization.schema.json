@@ -1,0 +1,659 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "F2 retrieval serialization contract",
+  "description": "Design only. Strict JSON plus documented semantic checks and actual human decisions required. External F1 refs resolve locally; no network fetch.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/SessionRequest"
+    },
+    {
+      "$ref": "#/$defs/SessionResult"
+    },
+    {
+      "$ref": "#/$defs/F2ApprovalReceipt"
+    },
+    {
+      "$ref": "#/$defs/EvaluationCaseSet"
+    }
+  ],
+  "$defs": {
+    "RetrieveRequest": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "const": "retrieve"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "top_k": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        }
+      },
+      "required": [
+        "op",
+        "use_case_id",
+        "question"
+      ],
+      "additionalProperties": false
+    },
+    "RetrievalConfiguration": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "deterministic",
+            "local_live"
+          ]
+        },
+        "top_k": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "min_score": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "calibration_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "query_encoding": {
+          "const": "f1_compatible_generic_encode_no_prompt"
+        },
+        "scoring": {
+          "const": "cosine_exact"
+        },
+        "model_configuration": {
+          "$ref": "../../agentic-rag/f1-ingestion/contracts/serialization.schema.json#/$defs/RunConfiguration"
+        },
+        "retrieval_deadline_seconds": {
+          "const": 120
+        },
+        "inventory_deadline_seconds": {
+          "const": 10
+        },
+        "query_encoding_deadline_seconds": {
+          "const": 90
+        },
+        "search_deadline_seconds": {
+          "const": 10
+        },
+        "max_scope_chunks": {
+          "const": 2048
+        }
+      },
+      "required": [
+        "mode",
+        "top_k",
+        "min_score",
+        "calibration_id",
+        "query_encoding",
+        "scoring",
+        "model_configuration",
+        "retrieval_deadline_seconds",
+        "inventory_deadline_seconds",
+        "query_encoding_deadline_seconds",
+        "search_deadline_seconds",
+        "max_scope_chunks"
+      ],
+      "additionalProperties": false
+    },
+    "EvidencePassage": {
+      "type": "object",
+      "properties": {
+        "chunk_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "tokenizer_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "configuration_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "model_id": {
+          "const": "sentence-transformers/all-MiniLM-L6-v2"
+        },
+        "model_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "use_case_id",
+        "source_id",
+        "title",
+        "revision",
+        "content_sha256",
+        "start",
+        "end",
+        "text",
+        "tokenizer_fingerprint",
+        "configuration_fingerprint",
+        "model_id",
+        "model_commit",
+        "rank",
+        "score"
+      ],
+      "additionalProperties": false
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "invalid_input",
+            "unknown_operation",
+            "unknown_use_case",
+            "question_too_long",
+            "configuration_mismatch",
+            "scope_not_ready",
+            "scope_too_large",
+            "model_unavailable",
+            "embedding_failed",
+            "index_failed",
+            "invalid_search_result",
+            "deadline_exceeded",
+            "session_unavailable"
+          ]
+        },
+        "message": {
+          "enum": [
+            "invalid_input",
+            "unknown_operation",
+            "unknown_use_case",
+            "question_too_long",
+            "configuration_mismatch",
+            "scope_not_ready",
+            "scope_too_large",
+            "model_unavailable",
+            "embedding_failed",
+            "index_failed",
+            "invalid_search_result",
+            "deadline_exceeded",
+            "session_unavailable"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "F2ApprovalReceipt": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "const": "f2_local_retrieval"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "decision_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "access_scope": {
+          "const": "local_demo_operator"
+        },
+        "retention": {
+          "const": "until_demo_end"
+        },
+        "deletion_scope": {
+          "const": "owned_run_collection_and_stack"
+        }
+      },
+      "required": [
+        "purpose",
+        "manifest_sha256",
+        "owner",
+        "reviewer",
+        "decision_reference",
+        "approved_at",
+        "access_scope",
+        "retention",
+        "deletion_scope"
+      ],
+      "additionalProperties": false
+    },
+    "RetrievalResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 2
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "op": {
+          "enum": [
+            "retrieve",
+            null
+          ]
+        },
+        "status": {
+          "enum": [
+            "matched",
+            "no_match",
+            "rejected",
+            "failed"
+          ]
+        },
+        "use_case_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "configuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RetrievalConfiguration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "elapsed_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "evidence_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidencePassage"
+          },
+          "maxItems": 10
+        },
+        "error": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Error"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "run_id",
+        "op",
+        "status",
+        "use_case_id",
+        "configuration",
+        "elapsed_ms",
+        "evidence_count",
+        "evidence",
+        "error"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "matched",
+                  "no_match"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "op": {
+                "const": "retrieve"
+              },
+              "use_case_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "configuration": {
+                "$ref": "#/$defs/RetrievalConfiguration"
+              },
+              "error": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "matched"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "evidence": {
+                "minItems": 1
+              },
+              "evidence_count": {
+                "minimum": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "no_match",
+                  "rejected",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "evidence": {
+                "maxItems": 0
+              },
+              "evidence_count": {
+                "const": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "rejected",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "$ref": "#/$defs/Error"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SessionRequest": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/RetrieveRequest"
+        },
+        {
+          "$ref": "../../agentic-rag/f1-ingestion/contracts/serialization.schema.json#/$defs/OperationRequest"
+        }
+      ]
+    },
+    "SessionResult": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/RetrievalResult"
+        },
+        {
+          "$ref": "../../agentic-rag/f1-ingestion/contracts/serialization.schema.json#/$defs/OperationResult"
+        }
+      ]
+    },
+    "EvaluationExpectation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": "matched"
+            },
+            "source_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "status",
+            "source_ids"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "const": "no_match"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "EvaluationCase": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "split": {
+          "enum": [
+            "calibration",
+            "held_out"
+          ]
+        },
+        "use_case_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "expected": {
+          "$ref": "#/$defs/EvaluationExpectation"
+        }
+      },
+      "required": [
+        "case_id",
+        "split",
+        "use_case_id",
+        "question",
+        "expected"
+      ],
+      "additionalProperties": false
+    },
+    "EvaluationCaseSet": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 2
+        },
+        "kind": {
+          "const": "evaluation_case_set"
+        },
+        "case_set_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "configuration_fingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "review_attribution": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "reviewer": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "decision_reference": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "approved_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "owner",
+            "reviewer",
+            "decision_reference",
+            "approved_at"
+          ],
+          "additionalProperties": false
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvaluationCase"
+          },
+          "minItems": 7,
+          "maxItems": 256
+        }
+      },
+      "required": [
+        "schema_version",
+        "kind",
+        "case_set_id",
+        "manifest_sha256",
+        "configuration_fingerprint",
+        "review_attribution",
+        "cases"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

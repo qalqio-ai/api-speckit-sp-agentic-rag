@@ -1,0 +1,93 @@
+{
+  "project": "f3-1e67cb6f335d447791faef1568c76f7c",
+  "acceptance_claimed": false,
+  "kind": "receipt_regression_diagnostics",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "receipt-regression",
+      "candidate_count": 2,
+      "maximum_candidate_score": 0.4537802,
+      "best_expected_source_score": 0.4537802,
+      "best_expected_source_rank": 1,
+      "inventory_ms": 626.7712629999096,
+      "encoding_ms": 7424.945573999821,
+      "search_ms": 649.0570050000315,
+      "candidates": [
+        {
+          "source_id": "returns",
+          "chunk_id": "1565c342-63a0-5216-91fc-115058bfa678",
+          "score": 0.4537802,
+          "rank": 1,
+          "passes_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        },
+        {
+          "source_id": "hours",
+          "chunk_id": "59f44f5d-ffe5-5c2a-a551-18798cfbed32",
+          "score": -0.068036094,
+          "rank": 2,
+          "passes_threshold": false,
+          "scope_filter_pass": true,
+          "current_id_filter_pass": true
+        }
+      ],
+      "expected_chunk_present": true,
+      "worker_timings": [
+        {
+          "pid": 180,
+          "start_monotonic": 1489.985084177,
+          "op": "storage",
+          "path_kind": "scroll",
+          "http_operation_ms": 322.7185579999059,
+          "worker_total_ms": 324.11018999982844
+        },
+        {
+          "pid": 181,
+          "start_monotonic": 1490.608165917,
+          "op": "encode",
+          "path_kind": "other",
+          "tokenizer_asset_import_ms": 6345.647355999972,
+          "model_load_ms": 734.7729299999628,
+          "embedding_ms": 28.05522799985738,
+          "worker_total_ms": 7109.455563999973
+        },
+        {
+          "pid": 224,
+          "start_monotonic": 1498.043180395,
+          "op": "storage",
+          "path_kind": "query",
+          "http_operation_ms": 340.33218099989426,
+          "worker_total_ms": 341.78077399997164
+        }
+      ],
+      "parent_calls": [
+        {
+          "op": "storage",
+          "elapsed_ms": 625.463093999997,
+          "startup_handshake_ms": 294.4804619999104
+        },
+        {
+          "op": "encode",
+          "elapsed_ms": 7424.87233199995,
+          "startup_handshake_ms": 290.86434399982863
+        },
+        {
+          "op": "storage",
+          "elapsed_ms": 648.8488259999485,
+          "startup_handshake_ms": 300.9676189999482
+        }
+      ],
+      "elapsed_ms": 8701.03926500019,
+      "retrieval_searches": 1
+    }
+  ],
+  "diagnostic_only": true,
+  "elapsed_ms": 37112.13745300006,
+  "peak_bytes": 783527936,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 356974592,
+  "stack_absent": true,
+  "exit_code": 0
+}

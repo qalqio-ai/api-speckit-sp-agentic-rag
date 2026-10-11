@@ -1,0 +1,104 @@
+{
+  "mode": "local_live",
+  "kind": "f3_wrapper_acceptance",
+  "cases": [
+    {
+      "case_id": "edm-answer-1",
+      "passed": false,
+      "status": "failed",
+      "reason": null,
+      "error": {
+        "code": "output_too_large",
+        "message": "output_too_large",
+        "cause_code": null
+      },
+      "retrieval_searches": 1,
+      "generation_attempts": 1,
+      "total_ms": 64073.610893,
+      "claim_count": 0,
+      "citation_count": 0
+    },
+    {
+      "case_id": "edm-answer-2",
+      "passed": false,
+      "status": "failed",
+      "reason": null,
+      "error": {
+        "code": "output_too_large",
+        "message": "output_too_large",
+        "cause_code": null
+      },
+      "retrieval_searches": 1,
+      "generation_attempts": 1,
+      "total_ms": 62005.80411499999,
+      "claim_count": 0,
+      "citation_count": 0
+    },
+    {
+      "case_id": "edm-answer-3",
+      "passed": false,
+      "status": "failed",
+      "reason": null,
+      "error": {
+        "code": "output_too_large",
+        "message": "output_too_large",
+        "cause_code": null
+      },
+      "retrieval_searches": 1,
+      "generation_attempts": 1,
+      "total_ms": 58355.65380200001,
+      "claim_count": 0,
+      "citation_count": 0
+    },
+    {
+      "case_id": "edm-answer-4",
+      "passed": true,
+      "status": "insufficient_evidence",
+      "reason": "no_evidence",
+      "error": null,
+      "retrieval_searches": 1,
+      "generation_attempts": 0,
+      "total_ms": 8816.814305999998,
+      "claim_count": 0,
+      "citation_count": 0
+    },
+    {
+      "case_id": "edm-answer-5",
+      "passed": true,
+      "status": "insufficient_evidence",
+      "reason": "unsupported_question",
+      "error": null,
+      "retrieval_searches": 1,
+      "generation_attempts": 0,
+      "total_ms": 7919.927185999995,
+      "claim_count": 0,
+      "citation_count": 0
+    }
+  ],
+  "acceptance_claimed": false,
+  "ready": true,
+  "completed_ingests": 3,
+  "metrics": {
+    "runner_peak_bytes": 3230089216,
+    "qdrant_peak_bytes": 412065792,
+    "max_latency_ms": 64088.480987993535,
+    "requests": 8,
+    "mode": "local_live",
+    "exit_code": 1,
+    "collection_absent": true
+  },
+  "exit_code": 1,
+  "elapsed_ms": 265081.0124120035,
+  "all_cases_pass": false,
+  "independent_post_run_absence_checks": {
+    "containers": {
+      "exit_code": 0,
+      "remaining_f3_resources": []
+    },
+    "networks": {
+      "exit_code": 0,
+      "remaining_f3_resources": []
+    }
+  },
+  "stack_absent": true
+}

@@ -1,0 +1,14 @@
+{
+  "purpose": "f3_local_grounded_answers",
+  "manifest_sha256": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+  "catalog_sha256": "a3b3775e60b3ba334d23f0f00489fb9488da3440207b1113acc810d4894887d8",
+  "review_attribution": {
+    "owner": "EDM",
+    "reviewer": "EDM",
+    "decision_reference": "EDM delegated autonomous local workshop finalization and case preparation. Existing source/claim rules unchanged; agent checked aliases against approved source text. No individual human wording review is asserted.",
+    "approved_at": "2026-10-07T01:00:47.159154+00:00"
+  },
+  "access_scope": "local_demo_operator",
+  "retention": "until_demo_end",
+  "deletion_scope": "owned_run_collection_and_stack"
+}

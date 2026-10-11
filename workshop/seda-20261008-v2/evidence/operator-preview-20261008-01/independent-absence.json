@@ -1,0 +1,71 @@
+{
+  "utc": "2026-10-08T03:18:13.418053+00:00",
+  "cwd": "/Users/edmcbee/Projects/api-speckit-sp-agentic-rag",
+  "rehearsal_project": "f3-f46b2576ec8d4eb7a523047ea8eefa05",
+  "ci_project": "ci-local-1791429045-34071",
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "container",
+        "ls",
+        "--all",
+        "--filter",
+        "label=com.docker.compose.project=f3-f46b2576ec8d4eb7a523047ea8eefa05",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "absent": true
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "ls",
+        "--filter",
+        "label=com.docker.compose.project=f3-f46b2576ec8d4eb7a523047ea8eefa05",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "absent": true
+    },
+    {
+      "command": [
+        "docker",
+        "container",
+        "ls",
+        "--all",
+        "--filter",
+        "label=com.docker.compose.project=ci-local-1791429045-34071",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "absent": true
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "ls",
+        "--filter",
+        "label=com.docker.compose.project=ci-local-1791429045-34071",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "absent": true
+    }
+  ],
+  "independent_absence_pass": true
+}

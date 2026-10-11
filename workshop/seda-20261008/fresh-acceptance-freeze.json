@@ -1,0 +1,100 @@
+{
+  "version": "seda-fresh-acceptance-v1",
+  "prepared_at": "2026-10-07T01:00:47.161138+00:00",
+  "case_review": "User 2026-10-07 authorized preparing/freezing/running fresh questions for SEDA with existing approved sources and models. Agent prepared and checked aliases against unchanged EDM-reviewed source/claim rules; no individual human wording review is asserted.",
+  "freshness": "Exact questions checked absent from existing JSON evidence before preparation; not evaluated/scored before freeze. Calibration/regressions are separate.",
+  "cases": [
+    {
+      "case_id": "fresh-return-1",
+      "use_case_id": "f2-synthetic",
+      "question": "Tell me the policy for returning an unused item.",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "fresh-return-2",
+      "use_case_id": "f2-synthetic",
+      "question": "What conditions apply to returning unused items within seven days?",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "fresh-return-3",
+      "use_case_id": "f2-synthetic",
+      "question": "According to the returns policy, how soon should an unused item be returned?",
+      "expected_status": "answered",
+      "expected_reason": null,
+      "expected_claim_ids": [
+        "returns"
+      ],
+      "acceptable_source_ids": [
+        "returns"
+      ]
+    },
+    {
+      "case_id": "fresh-shipping",
+      "use_case_id": "f2-synthetic",
+      "question": "What are the international shipping charges for parcels?",
+      "expected_status": "insufficient_evidence",
+      "expected_reason": "no_evidence",
+      "expected_claim_ids": [],
+      "acceptable_source_ids": []
+    },
+    {
+      "case_id": "fresh-used",
+      "use_case_id": "f2-synthetic",
+      "question": "May I return a used item?",
+      "expected_status": "insufficient_evidence",
+      "expected_reason": "unsupported_question",
+      "expected_claim_ids": [],
+      "acceptable_source_ids": []
+    }
+  ],
+  "lifecycle_pass_criteria": [
+    "all fresh expected results pass unchanged schema/claim/citation validators",
+    "one retrieval and at most one actual generation per answer; zero generation for preflight abstention",
+    "all returned evidence current, scoped and source-hash-bound",
+    "neighbor shared-source-ID evidence isolated",
+    "replace returns v1 with approved v2; verify old IDs absent and v2 hashes/current IDs exact",
+    "old v1 grounding catalog rejects post-replacement answering as catalog_mismatch with no factual output",
+    "cleared ready scope yields no evidence and zero generation",
+    "collection and owned stack independently absent; cleanup <=45 seconds"
+  ],
+  "gate": "Known receipt retrieval regression must be resolved through measured threshold review for full F3/F4 readiness. No acceptance tuning.",
+  "files": {
+    "fixtures/answer-approval.json": "45101164569822156d289bf34376b18fa9b45acff08b909a6edfbf095f2297fa",
+    "fixtures/ingest.jsonl": "11510442da7793e3306ae4947abe11834730e43cbf0f47ba9da859123d0d0940",
+    "fixtures/grounding-catalog.json": "234709de4639d75b88711525bb56b501f2497cc959054fb1d1e3957af5b2b537",
+    "fixtures/approval.json": "ebe1e67a58efb3563aa95d2f047cf4a05173eaf731dca1605ae6f2fa71a629fb",
+    "fixtures/f2-neighbor-returns-v1.txt": "17a36a6f7e0ca4f4d90a57dc56feb5bf151e654fd57101989df5b0fe42037f18",
+    "fixtures/evaluation-cases.json": "be35f359b0d15696e000d8c3206616969db584817fe150835f5fda86a1fa9058",
+    "fixtures/retrieval-approval.json": "76f2836e6565d2e4596b474af88f2fb62f414a330c3f3d64e018c49aa8ddc6da",
+    "fixtures/f2-synthetic-returns-v2.txt": "42e29fd89ba570415acadc4555e6249e8d00c0a511e982f8abfea0bdc31ac324",
+    "fixtures/f2-synthetic-returns-v1.txt": "50e85780308baf9945671e2c05be5ef4fa3e02ccd805babd2b6809ee52eb841d",
+    "fixtures/evaluation-cases.proposal.json": "ba6224c06beb4835cc63e75a88a8df0db620679a20d76a793801ed82ed0f5284",
+    "fixtures/retrieval-evaluation-cases.json": "616a8477e22c42d8d21ddc2e338021f367ce61c32452d9e175c96ea5ac5ecced",
+    "fixtures/f2-synthetic-hours-v1.txt": "f19298916273b5ad01a43fdaa740eba1c37596049e59059f6141df6b69baa03d",
+    "inputs/development-calibration-v2.json": "8046c6898336a81c7cfcb0349fd16149515fe1d87895594651472e95d8e34335",
+    "inputs/generation-assets.json": "e2c60542b3dd112ac71a649373aaef344e5872b71d5f857c64d7c94c4ca764e5",
+    "inputs/constraint-v1-worker.py": "272095138b269b02dfa1c3ee7acaff21cc8aaa6f09afb4004fa91731fa0fe73b",
+    "inputs/constraint-v1-trie.py": "766da6d0c1c581820f6a8492ff82dcc236da3ae5f71f6af64772774565cf9528",
+    "inputs/generation-prompt-v3-candidate.json": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+    "inputs/tmpfs-proof.json": "73d2faec03991362cdb4f1344c94e5b9515c46d43f0ff65dc1ee0a9c8436270c",
+    "inputs/test-constraint-v1.py": "4e5248649d1e7c403840a4f91c29c84ba01bde0b261124ee0cde64a8a77f01f5"
+  },
+  "threshold": 0.45614706000000005,
+  "calibration_id": "EDM-f2-20261004-v1",
+  "original_freeze": "specs/003-f3-grounded-rag/evaluation-freeze.json"
+}

@@ -1,0 +1,15 @@
+{
+  "project": "f3-67da6d7f5d394f4d81adec2b65d71381",
+  "acceptance_claimed": false,
+  "failed_operation": [
+    "docker",
+    "image",
+    "inspect"
+  ],
+  "returncode": 1,
+  "diagnostic": "Error response from daemon: {\"message\":\"No such image: f3-grounded-rag:local\"}\n",
+  "failure": "docker_command_failed",
+  "stack_absent": true,
+  "cleanup_ms": 0.013343000318855047,
+  "exit_code": 1
+}

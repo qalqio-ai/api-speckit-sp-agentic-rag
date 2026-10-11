@@ -1,0 +1,12 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-B",
+    "-m",
+    "workshop.preflight"
+  ],
+  "cwd": "/Users/edmcbee/Projects/api-speckit-sp-agentic-rag",
+  "exit_code": 0,
+  "elapsed_seconds": 2.144874986988725,
+  "utc": "2026-10-08T03:10:17.035839+00:00"
+}

@@ -1,0 +1,179 @@
+{
+  "project": "f3-5bc444a3a6814aa6836177a4ea752ff2",
+  "acceptance_claimed": false,
+  "kind": "prompt_v3_diagnostic_experiment",
+  "mode": "local_live",
+  "cases": [
+    {
+      "case_id": "edm-answer-1",
+      "status": "failed",
+      "reason": null,
+      "error": {
+        "code": "invalid_model_response",
+        "message": "invalid_model_response",
+        "cause_code": null
+      },
+      "passed": false,
+      "citation_correct": null,
+      "grounding_correct": null,
+      "claim_count": 0,
+      "citation_count": 0,
+      "retrieval_searches": 1,
+      "generation_attempts": 1,
+      "retrieval_ms": 8400.498978999998,
+      "generation_ms": 18087.391364000006,
+      "total_ms": 26489.776990000002,
+      "evidence_count": 1,
+      "all_evidence_isolated": true,
+      "generation_diagnostics": {
+        "stdout_bytes": 0,
+        "stderr_bytes": 940,
+        "proposal_file_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+        "system_prompt_sha256": "39c6a894170f8211401eae00ca8cbdb85b752cb8ebd7c7f56bad6ebafe814247",
+        "load_ms": 10435.943573000002,
+        "tokenizer_eos_id": 2,
+        "effective_eos_ids": [
+          2
+        ],
+        "model_generation_eos": 2,
+        "original_system_prompt_sha256": "855fbb8ea2364c7e54cfe0baa66b43cad5aa44e6498ce7d1c7c7736207931572",
+        "context_sha256": "3e6e8c29f78de7171b365eafdd08a7bf4ab364a30829f4ad3ec04192f8e02fac",
+        "prompt_bytes": 1894,
+        "prompt_tokens": 684,
+        "settings": {
+          "max_new_tokens": 384,
+          "do_sample": false,
+          "num_beams": 1,
+          "eos_token_id": [
+            2
+          ],
+          "pad_token_id": 2
+        },
+        "generate_ms": 7435.471269999994,
+        "new_tokens": 43,
+        "output_tokens": 727,
+        "last_token_id": 2,
+        "eos_positions": [
+          42
+        ],
+        "tokenizer_eos_positions": [
+          42
+        ],
+        "generated_text_bytes": 157,
+        "schema_valid": false,
+        "raw_output": "{\"status\":\"answered\",\"claims\":[{\"claim_id\":\"returns\",\"text\":\"Synthetic returns: unused items may be returned within 7 days with a receipt.\"}], \"reason\":null}",
+        "strict_json_valid": true,
+        "exact_shape_error": {
+          "type": "AnswerError",
+          "message": "invalid_input"
+        },
+        "stopping_reason": "configured_eos",
+        "decoded_tokens": 43,
+        "decoded_bytes": 157,
+        "worker_response_bytes": 51,
+        "worker_response_kind": "error",
+        "worker_error": "invalid_model_response",
+        "raw_output_sha256": "b8a8dfaedf1f39a33cb789ba532f366133c7f4caa2309a6254718e11d3aa90f5"
+      },
+      "raw_response_checks": {
+        "schema_valid": false,
+        "exact_rendering": false,
+        "required_chunk_ids_present": false,
+        "supporting_id_membership": false,
+        "claim_support": null
+      }
+    }
+  ],
+  "measurement": "instrumentation measures unchanged genuine calls; no scripted model output, retry or repair",
+  "retrieval_configuration_fingerprint": "e91a67aac7fe729f79512bc5ce2cdcc5aa8f38d172a042af9cfa2894448af04e",
+  "generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+  "experiment_configuration": {
+    "kind": "approved_single_variable_diagnostic",
+    "proposal_file_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+    "system_prompt_sha256": "39c6a894170f8211401eae00ca8cbdb85b752cb8ebd7c7f56bad6ebafe814247",
+    "revision": "edm-f3-prompt-schema-v3-candidate",
+    "decision_reference": "User approved creating v3 with exact rules text, actual supporting evidence chunk IDs and no invented/unsupported citations; one regression query, conditional remaining regressions, stop prompt iteration on failure.",
+    "case_ids_initial": [
+      "edm-answer-1"
+    ],
+    "conditional_followup": [
+      "edm-answer-2",
+      "edm-answer-3"
+    ],
+    "base_frozen_configuration_sha256": "99d8c3dbce3d5dd507d59c139fcb2ca2aa496b97170da1f5127cc6f2d88babd7",
+    "base_generation_configuration_fingerprint": "d2a0101d823ac6ad736a7a6c5d0ddeee4471e7145f2ba2bae5f1e04c3edffd1f",
+    "retrieval_min_score": 0.45614706000000005,
+    "calibration_id": "EDM-f2-20261004-v1",
+    "changes": [
+      "system_message_v3_mapping_only"
+    ],
+    "unchanged_limits": {
+      "max_new_tokens": 384,
+      "max_generated_utf8_bytes": 16384,
+      "max_prompt_tokens": 2048,
+      "max_prompt_utf8_bytes": 65536,
+      "max_context_tokens": 8192,
+      "generation_deadline_seconds": 110,
+      "whole_request_seconds": 240
+    },
+    "is_acceptance": false,
+    "raw_capture": "approved synthetic completion <=16384 UTF8 bytes; local diagnostic report only",
+    "parent_experiment_configuration_fingerprint": "a833b8e47983fba6e827c68e595af6377034d92f25052d5ede097853d2385f0a",
+    "experiment_configuration_fingerprint": "44f41716f83fbcabdaa8a2885a3785769e1b25dbd124fe113b060dfac7867ad6"
+  },
+  "all_cases_pass": false,
+  "generation_diagnostics": {
+    "stdout_bytes": 0,
+    "stderr_bytes": 940,
+    "proposal_file_sha256": "f8fbe683196b46f5f65ae149a308bfce0b24fa9a620b539ffbdc69f444540cd0",
+    "system_prompt_sha256": "39c6a894170f8211401eae00ca8cbdb85b752cb8ebd7c7f56bad6ebafe814247",
+    "load_ms": 10435.943573000002,
+    "tokenizer_eos_id": 2,
+    "effective_eos_ids": [
+      2
+    ],
+    "model_generation_eos": 2,
+    "original_system_prompt_sha256": "855fbb8ea2364c7e54cfe0baa66b43cad5aa44e6498ce7d1c7c7736207931572",
+    "context_sha256": "3e6e8c29f78de7171b365eafdd08a7bf4ab364a30829f4ad3ec04192f8e02fac",
+    "prompt_bytes": 1894,
+    "prompt_tokens": 684,
+    "settings": {
+      "max_new_tokens": 384,
+      "do_sample": false,
+      "num_beams": 1,
+      "eos_token_id": [
+        2
+      ],
+      "pad_token_id": 2
+    },
+    "generate_ms": 7435.471269999994,
+    "new_tokens": 43,
+    "output_tokens": 727,
+    "last_token_id": 2,
+    "eos_positions": [
+      42
+    ],
+    "tokenizer_eos_positions": [
+      42
+    ],
+    "generated_text_bytes": 157,
+    "schema_valid": false,
+    "raw_output": "{\"status\":\"answered\",\"claims\":[{\"claim_id\":\"returns\",\"text\":\"Synthetic returns: unused items may be returned within 7 days with a receipt.\"}], \"reason\":null}",
+    "strict_json_valid": true,
+    "exact_shape_error": {
+      "type": "AnswerError",
+      "message": "invalid_input"
+    },
+    "stopping_reason": "configured_eos",
+    "decoded_tokens": 43,
+    "decoded_bytes": 157,
+    "worker_response_bytes": 51,
+    "worker_response_kind": "error",
+    "worker_error": "invalid_model_response"
+  },
+  "peak_bytes": 3092299776,
+  "collection_absent": true,
+  "qdrant_peak_bytes": 410263552,
+  "stack_absent": true,
+  "exit_code": 0
+}

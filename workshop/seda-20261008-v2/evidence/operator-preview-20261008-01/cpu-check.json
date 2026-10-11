@@ -1,0 +1,1 @@
+{"command":["sysctl","-n","machdep.cpu.brand_string"],"exit_code":0,"stdout":"Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz","note":"direct authorized metadata check; earlier sandbox-denied attempt preserved in machine.json"}

@@ -29,3 +29,10 @@ runs/
 .DS_Store
 
 # Specs, governance and approved synthetic fixtures remain trackable.
+*.py[cod]
+venv/
+*.tmp
+*.swp
+.vscode/
+.idea/
+Thumbs.db
